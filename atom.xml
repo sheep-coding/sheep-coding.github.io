@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://sheep-coding.github.io</id>
+    <title>WMsheep</title>
+    <updated>2025-05-10T04:30:43.086Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://sheep-coding.github.io"/>
+    <link rel="self" href="https://sheep-coding.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://sheep-coding.github.io/images/avatar.png</logo>
+    <icon>https://sheep-coding.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, WMsheep</rights>
+    <entry>
+        <title type="html"><![CDATA[本地部署模型（ollama为例）]]></title>
+        <id>https://sheep-coding.github.io/post/ben-di-bu-shu-mo-xing-ollama-wei-li/</id>
+        <link href="https://sheep-coding.github.io/post/ben-di-bu-shu-mo-xing-ollama-wei-li/">
+        </link>
+        <updated>2025-05-08T13:00:53.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  <strong>学习本地部署</strong><br>
+✍️  <strong>断网吃硬件，连接不随缘</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  <strong>学习本地部署</strong><br>
+✍️  <strong>断网吃硬件，连接不随缘</strong></p>
+<!-- more -->
+<blockquote>
+<p><strong>前言</strong> ：这个方法是部署模型最简单的方法，但不一定是最好的 <strong>（取决于你的电脑系统 or 配置）</strong> 大家酌情考虑</p>
+</blockquote>
+<h3 id="为什么需要本地部署">为什么需要本地部署？</h3>
+<blockquote>
+<p>相信你之前也遇到过类似的情况：</p>
+</blockquote>
+<ol>
+<li>在外面<strong>没有网络</strong>，依靠<em><strong>百度战神</strong></em>查资料是不可能了，十分不便</li>
+<li>想玩一些开源大模型【如：<strong>ollama GML gemma</strong> 等】，访问这类网站在国内是要被墙的，<strong>挂VPN又《可刑可铐》</strong>，或者是找一个<em><strong>镜像站</strong></em>既不安全，又不稳定，令人苦恼</li>
+<li>没有浏览器（虽然大多数都有）</li>
+</ol>
+<blockquote>
+<p>如果你是大陆用户，或者是恰恰有遇到以上的这些问题，那这个方法就很适合你！</p>
+</blockquote>
+<hr>
+<h4 id="访问官网下载环境">访问官网/下载环境</h4>
+<p>链接【以<em><strong>ollama</strong></em>为例】</p>
+<p><strong><a href="https://ollama.com/">点击跳转</a></strong></p>
+<blockquote>
+<p><strong>点击 <a href="https://ollama.com/">Download</a></strong><br>
+选择适合你的系统下载版本（<strong>Windows &amp; MacOs &amp; Linux</strong>）<br>
+这里以 <strong>Windows</strong> 为例：<br>
+运行下载好的安装程序 <em><strong>Ollama Setup.exe</strong></em> 这里<strong>点击 <code>Install</code> 即可</strong></p>
+</blockquote>
+<hr>
+<h4 id="搜索部署模型">搜索/部署模型</h4>
+<blockquote>
+<p><em><strong>Ollama Setup.exe</strong></em> 安装好以后就可以<strong>搜索并部署模型</strong>了(～￣▽￣)～<br>
+方法也是 <em><strong><code>肥肠</code></strong></em> 的简单啊~</p>
+</blockquote>
+<h5 id="子标题搜索">子标题：搜索</h5>
+<ul>
+<li><strong>回到 ollama 官网</strong> <strong><a href="https://ollama.com/">点击跳转</a></strong> ，并点击上方的搜索栏，在搜索栏中<em><strong>搜索你想要的模型编号即可</strong></em>【如：ollama GML gemma 等】</li>
+<li>点击你想要的模型后 <strong>（以 llama 3.1 模型为例）</strong> <strong><a href="https://ollama.com/library/llama3.1">点击示例</a></strong> 在此界面中你可以<strong>选择模型的型号 <em>【如：8b 70b 405b】</em></strong> 左侧即是安装命令了</li>
+</ul>
+<h6 id="up-自己整理理了一些常用的开源模型如下">Up 自己整理理了一些常用的开源模型，如下：</h6>
+<ul>
+<li>
+<p><strong><a href="https://ollama.com/library/llama3.1:8b">Ollama 3.1</a></strong> <strong>(8b 70b 405b 同理)</strong></p>
+</li>
+<li>
+<p><strong><a href="https://ollama.com/library/gemma2">gemma 2</a></strong> <strong>(2b 9b 27b)</strong></p>
+</li>
+<li>
+<p><strong><a href="https://ollama.com/library/phi3.5">phi 3.5</a></strong> <strong>(3.8b模型)</strong></p>
+</li>
+</ul>
+<h5 id="子标题部署">子标题：部署</h5>
+<ol>
+<li>打开 <strong><code>PowerShell</code></strong> ，为了万无一失建议先输入<strong>ollama</strong>，查看一下当前运行情况如果<strong>有输出</strong>则没问题</li>
+<li>输入模型对应的安装命令【如<strong>ollama</strong>的模型部署命令就是 <strong>{ollama run llama3.1:8b}</strong>】即可</li>
+</ol>
+<hr>
+<h4 id="模型要求">模型要求</h4>
+<blockquote>
+<p>Windows：<strong>3060以上</strong>显卡+<strong>8G以上</strong>显存+<strong>16G内存</strong>，硬盘空间至少<strong>20G</strong><br>
+Mac：<strong>M1或M2芯片</strong> 16G内存，<strong>20G以上硬盘空间</strong></p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[大陆用户如何访问Github]]></title>
+        <id>https://sheep-coding.github.io/post/da-lu-yong-hu-ru-he-fang-wen-github/</id>
+        <link href="https://sheep-coding.github.io/post/da-lu-yong-hu-ru-he-fang-wen-github/">
+        </link>
+        <updated>2025-05-08T12:54:31.000Z</updated>
+        <summary type="html"><![CDATA[<p>🚀 Github，一个<strong>全球性开源平台</strong><br>
+🖥️ 适合不同人群的不同大量<strong>优质开源资源及开源作品</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>🚀 Github，一个<strong>全球性开源平台</strong><br>
+🖥️ 适合不同人群的不同大量<strong>优质开源资源及开源作品</strong></p>
+<!-- more -->
+<h2 id="github是什么">Github是什么？</h2>
+<blockquote>
+<p>Github是一个<strong>全球性开源平台</strong>。在此平台上有适合不同人群的不同大量<strong>优质开源资源及开源作品</strong>——Github一直与<strong>微软（Microsoft）<strong>有着亲密的关系，是微软的</strong>长期合作伙伴</strong>，安全性双重保障，可以放心使用！Github主要面向<strong>开发者群体</strong>，所谓开源就是<strong>开放源码</strong>的意思。</p>
+</blockquote>
+<h2 id="访问github">访问Github</h2>
+<h4 id="国内遇到的问题">国内遇到的问题</h4>
+<blockquote>
+<p><em><strong>《众嗦粥汁》</strong></em>，Github的服务器（大多数）都是在美国，或者其它地区，对于大陆用户来说，如果没有<strong>魔法/梯子</strong>，几乎是不可能访问的，这多少给一些（大陆）开发者带来了不便<br>
+<img src="https://img.remit.ee/api/file/AgACAgUAAyEGAASHRsPbAAIHsmgclWQKp49CNXXGxrL1uw8u8bcgAALiyzEb1S3pVAbt5HyaZgABfgEAAwIAA20AAzYE.jpg" alt="焦虑" loading="lazy"></p>
+</blockquote>
+<h4 id="办法来啦">办法来啦！！！</h4>
+<blockquote>
+<p>方法也是 <strong><code>肥肠的简单</code></strong>,只需一个加速器—— <strong>Watt Toolkit</strong>（原来叫steam++）</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://img.remit.ee/api/file/AgACAgUAAyEGAASHRsPbAAIHs2gclWgKyrPL7tm83yrCDNNu7FKHAALjyzEb1S3pVFliEs_rAU07AQADAgADdwADNgQ.png" alt="alt text" loading="lazy"></figure>
+<blockquote>
+<p>下载的方法也是特别简单</p>
+</blockquote>
+<h6 id="浏览器下载">浏览器下载</h6>
+<blockquote>
+<p><strong>Watt Toolkit</strong>链接<a href="https://steampp.net/">点击跳转</a></p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[软件分享#1]]></title>
+        <id>https://sheep-coding.github.io/post/ruan-jian-fen-xiang-1/</id>
+        <link href="https://sheep-coding.github.io/post/ruan-jian-fen-xiang-1/">
+        </link>
+        <updated>2025-05-08T11:34:13.000Z</updated>
+        <summary type="html"><![CDATA[<p>🖥️<strong>博客搭建·编程·效率工具·文件处理</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>🖥️<strong>博客搭建·编程·效率工具·文件处理</strong></p>
+<!-- more -->
+<h1 id="软件分享-1">📦 软件分享 #1</h1>
+<p><em>——博客搭建·编程·效率工具·文件处理——</em></p>
+<hr>
+<h2 id="博客搭建工具">🌐 博客搭建工具</h2>
+<h3 id="一-hexo">一、Hexo</h3>
+<p>🔗 <a href="https://hexo.io/zh-cn/">官网链接</a><br>
+✨ <strong>特点</strong>：</p>
+<ul>
+<li>快速生成静态博客</li>
+<li>支持Markdown解析</li>
+<li>轻量高效</li>
+</ul>
+<hr>
+<h3 id="二-gridea">二、Gridea</h3>
+<p>🔗 <a href="https://gridea.dev/">官网链接</a> | <a href="https://gridea.dev/docs/">中文文档</a> | <a href="https://gridea.dev/community/">社区</a> | <a href="https://gridea.dev/themes/">主题库</a></p>
+<p>✨ <strong>核心功能</strong>：</p>
+<ul>
+<li><strong>双模式支持</strong>：
+<ul>
+<li>📝 本地Markdown写作</li>
+<li>🚀 一键部署到GitHub Pages/Vercel等平台</li>
+</ul>
+</li>
+<li>丰富的主题生态</li>
+</ul>
+<hr>
+<h2 id="️-效率工具">🛠️ 效率工具</h2>
+<h3 id="三-typora">三、Typora</h3>
+<p>🔗 <a href="https://typora.io/">官网链接</a> | <a href="https://support.typora.io/">中文文档</a> | <a href="https://theme.typora.io/">主题库</a></p>
+<p>✨ <strong>亮点</strong>：</p>
+<ul>
+<li>实时预览Markdown</li>
+<li>极简界面设计</li>
+<li>完美搭配Gridea使用</li>
+</ul>
+<hr>
+<h2 id="开发协作">💻 开发协作</h2>
+<h3 id="四-github">四、GitHub</h3>
+<p>🔗 <a href="https://github.com/">官网链接</a> | <a href="https://docs.github.com/cn">中文文档</a> | <a href="https://github.com/topics/chinese">中文社区</a></p>
+<p>✨ <strong>定位</strong>：</p>
+<ul>
+<li>全球最大代码托管平台</li>
+<li>支持Git版本控制</li>
+</ul>
+<hr>
+<h3 id="五-git">五、Git</h3>
+<p>🔗 <a href="https://git-scm.com/">官网链接</a> | <a href="https://git-scm.com/book/zh/v2">中文文档</a> | <a href="https://git-scm.com/community">社区</a></p>
+<p>✨ <strong>核心能力</strong>：</p>
+<ul>
+<li>分布式版本控制</li>
+<li>高效代码管理</li>
+</ul>
+<hr>
+<blockquote>
+<p>💬 <strong>更多工具推荐？欢迎交流讨论！</strong> 😊</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Markdown 语法说明]]></title>
+        <id>https://sheep-coding.github.io/post/markdown-yu-fa-shuo-ming/</id>
+        <link href="https://sheep-coding.github.io/post/markdown-yu-fa-shuo-ming/">
+        </link>
+        <updated>2025-05-07T13:41:25.000Z</updated>
+        <summary type="html"><![CDATA[<p>_✒️一种适用于<strong>博客搭建</strong>、<strong>学习笔记</strong>的<strong>极简</strong>语法</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>_✒️一种适用于<strong>博客搭建</strong>、<strong>学习笔记</strong>的<strong>极简</strong>语法</p>
+<!-- more -->
+<h1 id="markdown-效果展示与源码对照">🎨 Markdown 效果展示与源码对照</h1>
+<h2 id="1-标题效果展示">1. 标题效果展示</h2>
+<h3 id="显示效果">显示效果</h3>
+<h1 id="一级标题">🚀 一级标题</h1>
+<h2 id="二级标题">🔍 二级标题</h2>
+<h3 id="三级标题">📌 三级标题</h3>
+<h3 id="源代码">源代码</h3>
+<pre><code class="language-markdown"># 🚀 一级标题
+## 🔍 二级标题
+### 📌 三级标题
+</code></pre>
+<h2 id="2-文本样式效果展示">2. 文本样式效果展示</h2>
+<h3 id="显示效果-2">显示效果</h3>
+<p>这是<strong>加粗文本</strong>，这是<em>斜体文本</em>，这是<s>删除线</s>，这是<code>行内代码</code>，还有<mark>高亮文本</mark>（需支持）</p>
+<h3 id="源代码-2">源代码</h3>
+<pre><code class="language-markdown">这是**加粗文本**，这是*斜体文本*，这是~~删除线~~，这是`行内代码`，还有==高亮文本==（需支持）
+</code></pre>
+<h2 id="3-列表效果展示">3. 列表效果展示</h2>
+<h3 id="显示效果-3">显示效果</h3>
+<ul>
+<li>🍎 水果
+<ul>
+<li>🍏 青苹果</li>
+<li>🍓 草莓</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>第一步</li>
+<li>第二步</li>
+</ol>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-7969317"><label class="task-list-item-label" for="task-item-7969317"> 完成任务</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1424397"><label class="task-list-item-label" for="task-item-1424397"> 待办事项</label></li>
+</ul>
+<h3 id="源代码-3">源代码</h3>
+<pre><code class="language-markdown">- 🍎 水果
+  - 🍏 青苹果
+  - 🍓 草莓
+1. 第一步
+2. 第二步
+- [x] 完成任务
+- [ ] 待办事项
+</code></pre>
+<h2 id="4-表格效果展示">4. 表格效果展示</h2>
+<h3 id="显示效果-4">显示效果</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>价格</th>
+<th>库存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MacBook Pro</td>
+<td>$1,299</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>AirPods</td>
+<td>$159</td>
+<td>⚠️</td>
+</tr>
+</tbody>
+</table>
+<h3 id="源代码-4">源代码</h3>
+<pre><code class="language-markdown">| 项目       | 价格   | 库存 |
+|------------|--------|------|
+| MacBook Pro | $1,299 | ✅ |
+| AirPods    | $159   | ⚠️ |
+</code></pre>
+<h2 id="5-代码块效果展示">5. 代码块效果展示</h2>
+<h3 id="显示效果-5">显示效果</h3>
+<pre><code class="language-python">def hello_world():
+    print(&quot;Hello, Markdown!&quot;)
+</code></pre>
+<h3 id="源代码-5">源代码</h3>
+<pre><code class="language-markdown">```python
+def hello_world():
+    print(&quot;Hello, Markdown!&quot;)
+```
+</code></pre>
+<h2 id="6-引用效果展示">6. 引用效果展示</h2>
+<h3 id="显示效果-6">显示效果</h3>
+<blockquote>
+<p>💡 这是引用内容</p>
+<p>可以多行显示</p>
+</blockquote>
+<h3 id="源代码-6">源代码</h3>
+<pre><code class="language-markdown">&gt; 💡 这是引用内容
+&gt; 
+&gt; 可以多行显示
+</code></pre>
+<h2 id="7-分割线效果展示">7. 分割线效果展示</h2>
+<h3 id="显示效果-7">显示效果</h3>
+<p>上面内容</p>
+<hr>
+<p>下面内容</p>
+<h3 id="源代码-7">源代码</h3>
+<pre><code class="language-markdown">上面内容
+
+---
+下面内容
+</code></pre>
+<h2 id="8-折叠内容效果展示">8. 折叠内容效果展示</h2>
+<h3 id="显示效果-8">显示效果</h3>
+<details>
+<summary>点击展开详情</summary>
+<p>这里是隐藏的内容...</p>
+<ul>
+<li>项目1</li>
+<li>项目2</li>
+</ul>
+</details>
+<h3 id="源代码-8">源代码</h3>
+<pre><code class="language-markdown">&lt;details&gt;
+&lt;summary&gt;点击展开详情&lt;/summary&gt;
+
+这里是隐藏的内容...
+
+- 项目1
+- 项目2
+&lt;/details&gt;
+</code></pre>
+<h2 id="9-数学公式效果展示">9. 数学公式效果展示</h2>
+<h3 id="显示效果-9">显示效果</h3>
+<p>行内公式：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></p>
+<p>块级公式：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>i</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mo>(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\sum_{i=1}^n i = \frac{n(n+1)}{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.929066em;vertical-align:-1.277669em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.113em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h3 id="源代码-9">源代码</h3>
+<pre><code class="language-markdown">行内公式：$E=mc^2$
+
+块级公式：
+$$
+\sum_{i=1}^n i = \frac{n(n+1)}{2}
+$$
+</code></pre>
+<h2 id="10-链接与图片效果展示">10. 链接与图片效果展示</h2>
+<h3 id="显示效果-10">显示效果</h3>
+<p><a href="https://www.trae.com.cn/home">Trea IDE</a></p>
+<figure data-type="image" tabindex="1"><img src="https://picx.zhimg.com/v2-c22a08d13ea17b8a12d666e0c55cb141_1440w.jpg" alt="示例图片" loading="lazy"></figure>
+<h3 id="源代码-10">源代码</h3>
+<pre><code class="language-markdown">[Trea IDE](https://www.trae.com.cn/home)
+
+![示例图片](https://picx.zhimg.com/v2-c22a08d13ea17b8a12d666e0c55cb141_1440w.jpg)
+</code></pre>
+<h2 id="11-特殊提示效果展示">11. 特殊提示效果展示</h2>
+<h3 id="显示效果-11">显示效果</h3>
+<blockquote>
+<p>💡 <strong>提示</strong>：这是重要提示</p>
+<p>⚠️ <strong>警告</strong>：请注意这个事项</p>
+</blockquote>
+<h3 id="源代码-11">源代码</h3>
+<pre><code class="language-markdown">&gt; 💡 **提示**：这是重要提示
+&gt; 
+&gt; ⚠️ **警告**：请注意这个事项
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://sheep-coding.github.io/post/hello-gridea/</id>
+        <link href="https://sheep-coding.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="https://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
