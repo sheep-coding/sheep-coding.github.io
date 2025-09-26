@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>关于Gridea博客的后续[博客跟新&amp;外观更改]篇 | WMsheep</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://sheep-coding.github.io/favicon.ico?v=1758929872719">
+<link rel="stylesheet" href="https://sheep-coding.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="🖥️拥有一个像这样的 小破站 Pro Max
+
+博客更新
+1. 基本内容
+
+前言： 如之前所说，任何博客都是需要先在本地部署好之后再上传到云端的，所以对于前期的远程连接一定要做好，使得我们的博客有更好的访问速度
+
+
+
+这时候我们需要先在 ..." />
+    <meta name="keywords" content="博客,Gridea" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://sheep-coding.github.io">
+        <img src="https://sheep-coding.github.io/images/avatar.png?v=1758929872719" class="site-logo">
+        <h1 class="site-title">WMsheep</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://sheep-coding.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">关于Gridea博客的后续[博客跟新&amp;外观更改]篇</h2>
+            <div class="post-date">2025-07-02</div>
+            
+              <div class="feature-container" style="background-image: url('https://sheep-coding.github.io/post-images/gridea-pro-max.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>🖥️拥有一个像这样的 <strong>小破站 Pro Max</strong></p>
+<!-- more -->
+<h2 id="博客更新">博客更新</h2>
+<h3 id="1-基本内容">1. 基本内容</h3>
+<blockquote>
+<p><strong>前言：</strong> 如之前所说，<strong>任何博客都是需要先在本地部署好之后再上传到云端的</strong>，所以对于<strong>前期的远程连接</strong>一定要做好，使得我们的博客有<strong>更好的访问速度</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>这时候我们需要先在 <strong>本地</strong> 写好 <code>.md</code> 文件，再 <code>Ctrl + A</code> （全选），<code>Ctrl + C</code> （复制），打开博客后台，<code>Ctrl + V</code> （粘贴），这样就完成了一次上传 <strong>[Markdown 使用专门的编写工具效果更好]</strong></p>
+</li>
+<li>
+<p>当然，我们也可以直接在博客后台编辑（<strong>Gridea 原生编辑器</strong>）</p>
+</li>
+</ul>
+<blockquote>
+<p>💡 Some Advice：<br>
+关于博客的写作语法主要使用的是 <strong>Markdown语法</strong> 和 <strong>HTML超文本编辑语言</strong>【这里推荐<strong>Markdown语法</strong>】 具体如下表：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>对比项</strong></th>
+<th><strong>Markdown</strong></th>
+<th><strong>HTML</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>语法简洁性</strong></td>
+<td>✅ 语法简单，易学易用（如 <code>#</code> 表示标题，<code>*</code> 表示列表）</td>
+<td>❌ 语法复杂，需要标签嵌套（如 <code>&lt;h1&gt;标题&lt;/h1&gt;</code>、<code>&lt;ul&gt;&lt;li&gt;列表&lt;/li&gt;&lt;/ul&gt;</code>）</td>
+</tr>
+<tr>
+<td><strong>可读性</strong></td>
+<td>✅ 原始内容接近纯文本，阅读和编写体验流畅</td>
+<td>❌ 标签和属性混杂，可读性较差（尤其是内容复杂时）</td>
+</tr>
+<tr>
+<td><strong>功能支持</strong></td>
+<td>⚠️ 基础排版（标题、列表、链接等），复杂功能依赖扩展或混合 HTML</td>
+<td>✅ 支持所有网页功能（表格、表单、多媒体、CSS/JS 等），灵活性极高</td>
+</tr>
+<tr>
+<td><strong>学习曲线</strong></td>
+<td>🟢 新手友好，10 分钟即可掌握常用语法</td>
+<td>🔴 需学习大量标签和属性，适合有前端基础的用户</td>
+</tr>
+<tr>
+<td><strong>扩展性</strong></td>
+<td>❌ 依赖解析器，部分平台可能不支持扩展语法（如流程图）</td>
+<td>✅ 可通过 CSS/JavaScript 实现任意视觉效果和交互</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>快速撰写内容型博客（如技术文档、笔记）</td>
+<td>需要复杂排版或交互的网页（如企业网站、动态博客）</td>
+</tr>
+<tr>
+<td><strong>工具生态</strong></td>
+<td>🟢 多数静态网站生成器（如 Hexo、Jekyll）和平台（如 GitHub、Notion）原生支持</td>
+<td>🟢 所有浏览器和网页编辑器支持，但需专业工具（如 Dreamweaver）提升效率</td>
+</tr>
+<tr>
+<td><strong>兼容性</strong></td>
+<td>⚠️ 不同解析器可能渲染结果不一致（如表格语法差异）</td>
+<td>✅ 标准化语言，各浏览器渲染一致</td>
+</tr>
+<tr>
+<td><strong>典型代码示例</strong></td>
+<td><code>markdown&lt;br&gt;# 标题&lt;br&gt;- 列表项&lt;br&gt;[链接](url)&lt;br&gt;</code></td>
+<td><code>html&lt;br&gt;&lt;h1&gt;标题&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;列表项&lt;/li&gt;&lt;/ul&gt;&lt;a href=&quot;url&quot;&gt;链接&lt;/a&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>关于<strong>Markdown语法的具体编写方式</strong> 可参考我的这篇博客：<strong><a href="https://sheep-coding.github.io/post/markdown/">点击查看</a></strong></p>
+<p><strong>🚀编写好博客内容%标题之后就可以选择一个封面、标签</strong>【这一步可选做】 <mark>保存并发布</mark> 啦</p>
+<h3 id="2-细节配置">2. 细节配置</h3>
+<ul>
+<li>
+<p>封面：包含图片 <strong>【支持本地上传或外部链接】</strong> --- <strong>[·非必要·]</strong></p>
+<ul>
+<li>上传图片：点击选择本地图片文件，支持 <code>.jpg</code>、<code>.jpeg</code>、<code>.png</code>、<code>.gif</code> 等格式</li>
+<li>外部链接：输入完整图片 URL，确保跨域资源共享（CORS）设置允许跨站访问</li>
+</ul>
+<hr>
+</li>
+<li>
+<p>标签：为文章 <strong>添加分类或主题</strong>，有助于 <strong>搜索引擎优化（SEO）和内容导航</strong> --- <strong>[·建议·]</strong></p>
+<ul>
+<li>每个标签都是一个<strong>独立的页面</strong>，显示具有相同标签的所有文章</li>
+<li><strong>标签名应简洁明了</strong>，描述文章主题（如 <code>技术</code>、<code>生活</code>、<code>学习</code>）</li>
+<li>建议最多使用 3 个标签，<strong>保持简洁性</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>自定义URL：<strong>让你的文章路径更简洁</strong> --- <strong>[·建议·]</strong>
+<ul>
+<li>自定义URL是指用户可以 <strong>为文章指定一个自定义的URL路径，而不是使用默认的标题作为URL</strong></li>
+<li>自定义URL可以包含<code>字母</code>、<code>数字</code>、<code>下划线</code>和<code>短横线</code>，<strong>不区分大小写</strong></li>
+<li>自定义 <strong>URL必须是唯一的</strong>，不能与其他文章冲突</li>
+<li>自定义URL可以<strong>用于SEO优化，搜索引擎会将自定义URL视为文章的<code>永久链接</code></strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="主题配置">主题配置</h2>
+<h3 id="1-安装主题">1. 安装主题</h3>
+<ul>
+<li>
+<p>访问 Gridea 官方主题商店 <strong><a href="https://open.gridea.dev/themes">主题商店</a></strong></p>
+</li>
+<li>
+<p>搜索并选择你喜欢的主题，点击安装</p>
+  <details>
+  <summary>详情操作</summary>
+<ol>
+<li><strong>访问该主题的GitHub仓库</strong></li>
+<li><strong>下拉找到对应的主题然后下载压缩包文件<code>.zip</code>并且解压</strong></li>
+<li>解压完的文件一整个复制到<strong>Griea的主题文件夹里</strong>【<code>C:\Users\用户名\Documents\Gridea\themes</code>】</li>
+<li><strong>重启Griea之后就可以在 &lt;主题&gt; 里应用此主题</strong></li>
+</ol>
+  </details>
+</li>
+</ul>
+<h3 id="2-后续配置">2. 后续配置</h3>
+<ul>
+<li>有的主题涵盖多种主题配色<strong>选择一个合适的配色并应用</strong></li>
+<li>可以自行配置 <strong>谷歌统计</strong> 以及 <strong>评论系统</strong><br>
+详细分析见下<br>
+以下是优化后的 Gridea 主题对比表格，增加了视觉元素和细节描述，使内容更生动直观：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>主题</strong></th>
+<th><strong>设计风格</strong></th>
+<th><strong>核心特点</strong></th>
+<th><strong>适用场景</strong></th>
+<th><strong>视觉符号</strong></th>
+<th><strong>综合评分</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🌌 Pure</strong></td>
+<td><strong>科幻极简风</strong></td>
+<td>✅ <strong>无界留白</strong>：纯黑/白背景沉浸式阅读<br>✅ <strong>代码友好</strong>：支持 <code>LaTeX</code> 公式 + 代码高亮<br>✅ <strong>动态响应</strong>：平滑暗色模式切换</td>
+<td>技术博客/开源文档</td>
+<td>🖥️📐💻</td>
+<td>⭐⭐⭐⭐☆ (4.5)</td>
+</tr>
+<tr>
+<td><strong>📜 Paper</strong></td>
+<td><strong>复古手账风</strong></td>
+<td>✅ <strong>纸质肌理</strong>：米黄背景 + 毛边阴影<br>✅ <strong>文艺排版</strong>：衬线标题 + 墨水色文字<br>✅ <strong>复古元素</strong>：邮票式标签 + 咖啡渍效果</td>
+<td>散文/诗歌/旅行笔记</td>
+<td>✒️☕📖</td>
+<td>⭐⭐⭐☆ (3.5)</td>
+</tr>
+<tr>
+<td><strong>🍃 Simple</strong></td>
+<td><strong>空气感扁平风</strong></td>
+<td>✅ <strong>轻盈呼吸</strong>：纯白背景 + 微渐变按钮<br>✅ <strong>瀑布流图库</strong>：智能图片裁切 + 悬浮放大<br>✅ <strong>零负担体验</strong>：秒级加载 + 全屏聚焦模式</td>
+<td>摄影/短内容/轻博客</td>
+<td>📸🌫️⚡</td>
+<td>⭐⭐⭐⭐ (4.0)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="深度对比指南"><strong>深度对比指南</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>维度</strong></th>
+<th><strong>Pure</strong></th>
+<th><strong>Paper</strong></th>
+<th><strong>Simple</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>字体系统</strong></td>
+<td>🔹 等宽代码字体<br>🔹 无衬线正文字体</td>
+<td>🔹 手写英文标题<br>🔹 衬线中文字体</td>
+<td>🔹 超细无衬线字体<br>🔹 字重层次丰富</td>
+</tr>
+<tr>
+<td><strong>动效细节</strong></td>
+<td>✨ 代码块荧光边框</td>
+<td>✨ 翻页纸张沙沙音效</td>
+<td>✨ 图片悬停3D浮起</td>
+</tr>
+<tr>
+<td><strong>特色组件</strong></td>
+<td>▫️ 数学公式渲染器<br>▫️ API文档模板</td>
+<td>▫️ 墨水渍装饰<br>▫️ 信纸式评论区</td>
+<td>▫️ 全屏画廊<br>▫️ 微语录卡片</td>
+</tr>
+<tr>
+<td><strong>移动体验</strong></td>
+<td>📱 目录导航浮动窗</td>
+<td>📱 纸质纹理缩放防失真</td>
+<td>📱 图片自适应懒加载</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<blockquote>
+<p><strong>🎯 选择决策树</strong></p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIr4GhlLz1wZ6Nl2IvF-bhiB4FNGcoWAALzFwACKBcoV5_E14ltuo_6NgQ.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>💎 <strong>终极建议</strong>：</p>
+<ul>
+<li>写 <strong>React/Vue教程</strong> → 选 <code>Pure</code>，公式与代码完美兼容</li>
+<li>记录 <strong>京都樱花之旅</strong> → 选 <code>Paper</code>，手账风唤醒旅行记忆</li>
+<li>发布 <strong>手机摄影集</strong> → 选 <code>Simple</code>，让图片自己说话</li>
+</ul>
+</blockquote>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://sheep-coding.github.io/tag/bo-ke/" class="tag">
+                    博客
+                  </a>
+                
+                  <a href="https://sheep-coding.github.io/tag/vOJAsR4xyU/" class="tag">
+                    Gridea
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://sheep-coding.github.io/post/gr-git-blog/">
+                  <h3 class="post-title">
+                    Grdea + Github Pages 搭建个人博客
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liqqJfn4S2Q34rNp',
+        clientSecret: '53071e078647c7d1ac0a0a0d772adc088f94d5fd',
+        repo: 'sheep-coding.github.io',
+        owner: 'sheep-coding',
+        admin: ['sheep-coding'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

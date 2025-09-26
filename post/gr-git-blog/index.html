@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Grdea + Github Pages 搭建个人博客 | WMsheep</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://sheep-coding.github.io/favicon.ico?v=1758929872719">
+<link rel="stylesheet" href="https://sheep-coding.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="🖥️拥有一个像这样的 小破站
+
+准备工作
+
+
+拥有一个 Github账号
+下载 Grdea
+足够的耐心与热爱
+
+
+软件配置
+
+
+Github 账号
+
+
+
+注册账号
+
+打开 Github
+填写邮箱、密码、用户名
+点击 Sign up 注册
+..." />
+    <meta name="keywords" content="博客,Windows,科技,Gridea" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://sheep-coding.github.io">
+        <img src="https://sheep-coding.github.io/images/avatar.png?v=1758929872719" class="site-logo">
+        <h1 class="site-title">WMsheep</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://sheep-coding.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Grdea + Github Pages 搭建个人博客</h2>
+            <div class="post-date">2025-05-31</div>
+            
+              <div class="feature-container" style="background-image: url('https://www.8848seo.cn/zb_users/upload/2022/08/20220805120316_77357.jpeg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>🖥️拥有一个像这样的 <strong>小破站</strong></p>
+<!-- more -->
+<h2 id="准备工作">准备工作</h2>
+<blockquote>
+<ol>
+<li>拥有一个 <strong>Github账号</strong></li>
+<li>下载 <strong><a href="https://open.gridea.dev/#started">Grdea</a></strong></li>
+<li><strong>足够的耐心与热爱</strong></li>
+</ol>
+</blockquote>
+<h2 id="软件配置">软件配置</h2>
+<ol>
+<li>
+<h3 id="github-账号">Github 账号</h3>
+</li>
+</ol>
+<details>
+<summary>注册账号</summary>
+<ol>
+<li>打开 <a href="https://github.com/">Github</a></li>
+<li>填写邮箱、密码、用户名</li>
+<li>点击 <strong>Sign up</strong> 注册</li>
+</ol>
+</details>
+<details>
+<summary>新建仓库</summary>
+<ol>
+<li>点击右上角 <strong>+</strong> 号</li>
+<li>选择 <strong>New repository</strong></li>
+<li>填写仓库名称（必须安格式填写）<br>
+<code>&lt;用户名&gt;.github.io</code></li>
+<li>点击 <strong>Create repository</strong> 完成创建</li>
+</ol>
+</details>
+<p><a href="https://www.bilibili.com/video/BV1eE421M7Wr?t=44.8"><strong>点击观看B站视频</strong></a></p>
+<ol start="2">
+<li>
+<h3 id="grdea-配置">Grdea 配置</h3>
+</li>
+</ol>
+<p>打开 <strong>Grdea</strong><br>
+<img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIXUWg6cZYHSa5l1U0krtLnQM7Q1g9JAAKUFwACM5vQVWz3blJzSu5uNgQ.png" alt="" loading="lazy"><br>
+点击 <strong>&lt;远程&gt;</strong><br>
+<img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIXdGg6wmLbYdi_1EhNr60KRmv8xF3rAAKgFwACiKvZVasriS3q4iuzNgQ.png" alt="" loading="lazy"><br>
+点击 <strong>Github</strong></p>
+<h2 id="github-pages免费域名">Github Pages免费域名</h2>
+<blockquote>
+<p>⚠️ 注意：</p>
+<ol>
+<li>域名必须是 <strong>Github</strong> 账号的用户名</li>
+<li>确保各项信息正确（特别是令牌号）</li>
+</ol>
+<details>
+<summary>获取令牌号</summary>
+</blockquote>
+<h1 id="gridea-github-pages-搭建个人博客-获取github令牌号教程">Gridea + Github Pages 搭建个人博客 - 获取Github令牌号教程</h1>
+<p>要使用Gridea管理你的GitHub Pages博客，你需要获取GitHub的个人访问令牌（Personal Access Token）。以下是详细的获取步骤：</p>
+<h2 id="1-登录github">1. 登录GitHub</h2>
+<p>首先确保你已经登录到GitHub账号。</p>
+<h2 id="2-创建新的访问令牌">2. 创建新的访问令牌</h2>
+<ol>
+<li>点击右上角你的头像</li>
+<li>选择 &quot;Settings&quot;（设置）</li>
+<li>在左侧边栏底部找到 &quot;Developer settings&quot;（开发者设置）</li>
+<li>点击 &quot;Personal access tokens&quot;（个人访问令牌）</li>
+<li>选择 &quot;Tokens (classic)&quot;（经典令牌）</li>
+<li>点击 &quot;Generate new token&quot;（生成新令牌）</li>
+<li>选择 &quot;Generate new token (classic)&quot;（生成经典令牌）</li>
+</ol>
+<h2 id="3-配置令牌信息">3. 配置令牌信息</h2>
+<ol>
+<li>在 &quot;Note&quot;（备注）处填写一个便于识别的名称，比如 &quot;Gridea&quot;</li>
+<li>设置令牌的有效期（建议选择 &quot;No expiration&quot;，即永不过期）</li>
+<li>权限选择：<mcreference link="https://scl100.github.io/grideajiaocheng/" index="1">为了确保Gridea能够正常管理你的GitHub Pages，建议将所有权限都勾选上</mcreference></li>
+</ol>
+<h2 id="4-保存令牌">4. 保存令牌</h2>
+<ol>
+<li>点击页面底部的 &quot;Generate token&quot;（生成令牌）按钮</li>
+<li><strong>重要提醒</strong>：<mcreference link="https://scl100.github.io/grideajiaocheng/" index="1">请立即复制并保存生成的令牌，因为关闭页面后你将无法再次查看它</mcreference></li>
+</ol>
+<h2 id="5-在gridea中使用令牌">5. 在Gridea中使用令牌</h2>
+<ol>
+<li>打开Gridea软件</li>
+<li>进入设置页面</li>
+<li>在「远程」设置中：
+<ul>
+<li>填写你的GitHub用户名</li>
+<li>将刚才保存的令牌粘贴到「Token」输入框中</li>
+<li>填写你的GitHub Pages仓库名（通常是 username.github.io）</li>
+<li>分支选择 main 或 master</li>
+</ul>
+</li>
+</ol>
+<h2 id="6-测试连接">6. 测试连接</h2>
+<p><mcreference link="https://sspai.com/post/54212" index="2">配置完成后，点击「检测远程连接」按钮测试连接是否正常。如果显示连接成功，就说明令牌配置正确，Gridea已经成功连接到你的GitHub Pages</mcreference></p>
+<h2 id="注意事项">注意事项</h2>
+<blockquote>
+<ol>
+<li>请妥善保管你的访问令牌，不要分享给他人</li>
+<li>如果令牌泄露，请立即到GitHub中删除该令牌并创建新的</li>
+<li>如果你在使用过程中遇到同步问题，可以尝试重新生成令牌</li>
+</ol>
+</blockquote>
+<p>完成以上步骤后，你就可以使用Gridea来管理和发布你的博客文章了</p>
+</details>
+<hr>
+<h2 id="4-更新博客">4. 更新博客</h2>
+<p>几乎任何云端部署的信息都是要在 <strong>本地部署</strong> 后再上传到云端的<br>
+所以我们需要 <strong>先在本地部署好博客后再上传到云端</strong></p>
+<p>对于高效码字来说，一些好的 <strong>软件</strong> 至关重要</p>
+<h3 id="推荐软件">推荐软件</h3>
+<ol>
+<li><a href="https://typora.io/">Typora</a> - 一款简洁优雅的Markdown编辑器 ⭐⭐⭐</li>
+<li><a href="https://code.visualstudio.com/">VSCode</a> - 微软开发的轻量级代码编辑器⭐⭐</li>
+<li><a href="https://traeide.com/">Trae IDE</a> - 基于VSCode的AI增强型集成开发环境⭐⭐⭐⭐</li>
+</ol>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://sheep-coding.github.io/tag/bo-ke/" class="tag">
+                    博客
+                  </a>
+                
+                  <a href="https://sheep-coding.github.io/tag/HGZvjqPf1L/" class="tag">
+                    Windows
+                  </a>
+                
+                  <a href="https://sheep-coding.github.io/tag/oAWhKPueHj/" class="tag">
+                    科技
+                  </a>
+                
+                  <a href="https://sheep-coding.github.io/tag/vOJAsR4xyU/" class="tag">
+                    Gridea
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://sheep-coding.github.io/post/q-bs-ollama/">
+                  <h3 class="post-title">
+                    本地部署模型时遇到的常见问题
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liqqJfn4S2Q34rNp',
+        clientSecret: '53071e078647c7d1ac0a0a0d772adc088f94d5fd',
+        repo: 'sheep-coding.github.io',
+        owner: 'sheep-coding',
+        admin: ['sheep-coding'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

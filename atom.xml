@@ -1,0 +1,1249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://sheep-coding.github.io</id>
+    <title>WMsheep</title>
+    <updated>2025-09-26T23:38:03.096Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://sheep-coding.github.io"/>
+    <link rel="self" href="https://sheep-coding.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://sheep-coding.github.io/images/avatar.png</logo>
+    <icon>https://sheep-coding.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2025, WMsheep</rights>
+    <entry>
+        <title type="html"><![CDATA[OpenList 的部署与使用]]></title>
+        <id>https://sheep-coding.github.io/post/openlist/</id>
+        <link href="https://sheep-coding.github.io/post/openlist/">
+        </link>
+        <updated>2025-08-26T03:48:07.000Z</updated>
+        <summary type="html"><![CDATA[<p>🌐让 <strong>文件管理、家庭NAS</strong> 变得像<strong>喝水一样简单</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>🌐让 <strong>文件管理、家庭NAS</strong> 变得像<strong>喝水一样简单</strong></p>
+<!-- more -->
+<details>
+    <summary>前言</summary>
+    这是一个与 <strong>Aslist</strong> 差不多的开源服务，主要用于家庭文件管理</br>
+	相较之下，它更像是一个 <strong>家庭NAS</strong> 用于管理文件，音视频等（<strong>因为它内置播放器，自然也可以当作家庭影视库</strong>）
+	</details>
+<h2 id="关于-openlist">关于 OpenList</h2>
+<ol>
+<li><strong>多存储挂载</strong>：聚合管理本地存储、阿里云盘、OneDrive、Google Drive 等十几种存储服务</li>
+<li><strong>统一文件管理</strong>：提供<code>上传、下载、删除、移动、复制</code>等跨存储的通用文件操作</li>
+<li><strong>文件预览</strong>：支持<strong>在线预览文档（PDF、Office）、图片、文本和代码文件</strong></li>
+<li><strong>媒体播放</strong>：支持<strong>在线播放视频和音频文件</strong>，并可加载外挂字幕</li>
+<li><strong>文件分享</strong>：可为文件或文件夹生成密码保护和有效期设置的<strong>分享链接</strong></li>
+<li><strong>WebDAV 支持</strong>：通过 WebDAV 协议向外提供文件访问服务，<strong>兼容其他应用</strong></li>
+<li><strong>离线下载</strong>：支持添加<strong>种子、磁力链接</strong>等任务进行离线下载到挂载的存储</li>
+<li><strong>自托管部署</strong>：提供 Docker 等部署方式，可完全<strong>私有化部署，数据自主控制</strong></li>
+<li><strong>多云同步</strong>：支持在不同挂载的存储之间复制或移动文件，<strong>实现跨云盘同步</strong></li>
+</ol>
+<hr>
+<blockquote>
+<p><strong>适用场景</strong>：单区域文件共享、家庭NAS、家庭影视库、私密文件存储。快速文件预览&amp;分享</p>
+</blockquote>
+<h2 id="本地搭建-webdav-挂载">本地搭建 &amp; WebDAV 挂载</h2>
+<h3 id="一-本地搭建">一、本地搭建</h3>
+<ol>
+<li>从 <strong>OpenList 官网</strong> 或者 <strong>官方Github</strong> 下载本地源文件 <strong><a href="https://github.com/OpenListTeam/OpenList/releases/tag/beta">点击跳转</a></strong><br>
+划到最下面：<br>
+<a href="https://imgse.com/i/pVymvYq"><img src="https://s21.ax1x.com/2025/08/25/pVymvYq.png" alt="pVymvYq.png" loading="lazy"></a><br>
+在框起来的 <code>.zip</code> 文件中（<strong>Windows 系统</strong>），选择你自己的 <em><strong>系统对应版本</strong></em> 下载<br>
+</br></li>
+<li>解压 <code>.zip</code> 文件，在上方输入 <code>cmd</code> 打开<strong>命令提示符</strong> 输入：</li>
+</ol>
+<pre><code class="language-bash">openlist server
+</code></pre>
+<p>回车 <strong>启动OpenList 服务</strong><br>
+<a href="https://imgse.com/i/pVyueEj"><img src="https://s21.ax1x.com/2025/08/25/pVyueEj.png" alt="pVyueEj.png" loading="lazy"></a><br>
+保存好 <strong>临时密码</strong> 和 <strong>5244端口号</strong><br>
+</br><br>
+3. 在浏览器内输入：</p>
+<pre><code class="language-txt">127.0.0.1:5244
+</code></pre>
+<p>不出意外就可以访问 <strong>OpenList 服务了</strong><br>
+<a href="https://imgse.com/i/pVyu5M8"><img src="https://s21.ax1x.com/2025/08/25/pVyu5M8.png" alt="pVyu5M8.png" loading="lazy"></a><br>
+如图所示输入 <strong>用户名：</strong><code>admin</code> 和 <strong>临时密码</strong>，点击 <strong>&lt;登录&gt;</strong><br>
+点击网页下方的 <strong>管理</strong><br>
+<a href="https://imgse.com/i/pVyuzsU"><img src="https://s21.ax1x.com/2025/08/25/pVyuzsU.png" alt="pVyuzsU.png" loading="lazy"></a><br>
+进入管理页面后，即可 <strong>更改用户名/密码</strong> ，点击 <strong>保存</strong> ，重新登陆一次即可<br>
+</br><br>
+4. <strong>挂载网盘（先以阿里云盘为例）</strong></p>
+<ul>
+<li>打开 <strong>OpenList</strong> 点击左侧菜单栏中的 <strong>存储</strong>  驱动选择 <em><strong>阿里云盘（OAuth2）</strong></em>
+<ul>
+<li>在 <strong>存储路径</strong> 这里先输入 <code>/</code> 然后取一个名字（可自定义），比如 <code>阿里云盘</code></li>
+</ul>
+</li>
+<li>接下来，划到下方，获取 <strong>刷新令牌</strong> <strong><a href="https://api.oplist.org/">点击跳转</a></strong>
+<ul>
+<li>网盘名称选择 <em><strong>阿里云盘（OAuth2）扫码登陆</strong></em>  ，勾选 <strong>使用 OpenList 提供的参数</strong> <a href="https://imgse.com/i/pVyDVpV"><img src="https://s21.ax1x.com/2025/08/26/pVyDVpV.png" alt="pVyDVpV.png" loading="lazy"></a></li>
+<li>点击 <strong>获取 Token</strong> 在手机上扫码登陆 <em><strong>阿里云盘</strong></em> Token 就会出现在下方
+<ul>
+<li>复制 <em><strong>刷新令牌</strong></em> 回到 <strong>OpenList</strong> 填入 <em><strong>刷新令牌</strong></em> ，点击 <strong>添加</strong>，状态显示为 <code>work</code> 即可![[Pasted image 20250826095501.png]]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="站长の中场废话">站长の中场废话</h3>
+<blockquote>
+<p>我们已经完成了 <strong>OpenList 的网盘挂载</strong> ，其实这样就可以使用了，只不过不够直接、方便，之前我们了解过一些，<strong>把网盘直接挂载为 USB/驱动器</strong> 的技术——使用 <em><strong>RaiDrive</strong></em></p>
+</blockquote>
+<p>接下来我们就会使用 <em><strong>RaiDrive</strong></em> 来将网盘直接挂载到 <strong>本地电脑</strong> 中，实现网页、本地双向操作</p>
+<hr>
+<h3 id="二-webdav-挂载">二、WebDAV 挂载</h3>
+<ol>
+<li>下载 <em><strong>RaiDrive</strong></em> <strong><a href="https://www.raidrive.com/">点击跳转</a></strong>，登录<a href="https://imgse.com/i/pVyr0rF"><img src="https://s21.ax1x.com/2025/08/26/pVyr0rF.png" alt="pVyr0rF.png" loading="lazy"></a></li>
+<li>打开 <em><strong>RaiDrive</strong></em> 点击 <strong>添加</strong> 填入信息<a href="https://imgse.com/i/pVyrjsS"><img src="https://s21.ax1x.com/2025/08/26/pVyrjsS.md.png" alt="pVyrjsS.md.png" loading="lazy"></a><br>
+确保 <strong>Webdav 权限</strong> 和 <strong>Webdav 管理</strong> 权限开启，点击 <strong>连接</strong></li>
+</ol>
+<h2 id="管理启动">管理启动</h2>
+<blockquote>
+<p><em><strong>RaiDrive</strong></em> 和 <em><strong>OpenList</strong></em> 需要同步启动，所以最好添加一个 <strong>启动管理</strong> ，<em><strong>RaiDrive</strong></em> 本来就有开机自启动，所以这里主要说明 <strong>OPenList</strong></p>
+</blockquote>
+<h3 id="启动脚本">启动脚本</h3>
+<ol>
+<li>在 <strong>OpenList 程序源文件下</strong> 新建两个 <code>.txt</code> 文档</li>
+<li>【第一个】输入<mark>以下脚本代码（启动脚本）</mark> 命名为 <code>openListStart.vbs</code><pre><code>Dim ws
+Set ws = Wscript.CreateObject(&quot;Wscript.Shell&quot;)
+ws.run &quot;openlist.exe server&quot;,vbhide
+Wscript.quit
+</code></pre>
+【第二个】输入<mark>以下脚本代码（停止脚本）</mark> 命名为 <code>openListStop.vbs</code><pre><code>Dim ws
+Set ws = Wscript.CreateObject(&quot;Wscript.Shell&quot;)
+ws.run &quot;taskkill /f /im openlist.exe&quot;,0
+Wscript.quit
+</code></pre>
+</li>
+</ol>
+<h3 id="添加自启动">添加自启动</h3>
+<p>Win + R 打开 <em><strong>运行</strong></em> 输入 <code>shell:startup</code> ，添加 <code>openListStop.vbs</code> 的 <strong>快捷方式</strong> 到这个目录下即可</p>
+<h2 id="访问">访问</h2>
+<h4 id="本地电脑">本地电脑</h4>
+<ol>
+<li>127.0.0.1 + 端口号<pre><code>127.0.0.1:5244
+</code></pre>
+</li>
+<li>IP 地址 + 端口号（IP地址不便展示）<pre><code>256.256.256.256:5244
+</code></pre>
+</li>
+</ol>
+<h4 id="同一局域网">同一局域网</h4>
+<p>IP 地址 + 端口号（IP地址不便展示）</p>
+<pre><code>256.256.256.256:5244
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于Gridea博客的后续[博客跟新&外观更改]篇]]></title>
+        <id>https://sheep-coding.github.io/post/gridea-pro-max/</id>
+        <link href="https://sheep-coding.github.io/post/gridea-pro-max/">
+        </link>
+        <updated>2025-07-02T13:20:58.000Z</updated>
+        <summary type="html"><![CDATA[<p>🖥️拥有一个像这样的 <strong>小破站 Pro Max</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>🖥️拥有一个像这样的 <strong>小破站 Pro Max</strong></p>
+<!-- more -->
+<h2 id="博客更新">博客更新</h2>
+<h3 id="1-基本内容">1. 基本内容</h3>
+<blockquote>
+<p><strong>前言：</strong> 如之前所说，<strong>任何博客都是需要先在本地部署好之后再上传到云端的</strong>，所以对于<strong>前期的远程连接</strong>一定要做好，使得我们的博客有<strong>更好的访问速度</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>这时候我们需要先在 <strong>本地</strong> 写好 <code>.md</code> 文件，再 <code>Ctrl + A</code> （全选），<code>Ctrl + C</code> （复制），打开博客后台，<code>Ctrl + V</code> （粘贴），这样就完成了一次上传 <strong>[Markdown 使用专门的编写工具效果更好]</strong></p>
+</li>
+<li>
+<p>当然，我们也可以直接在博客后台编辑（<strong>Gridea 原生编辑器</strong>）</p>
+</li>
+</ul>
+<blockquote>
+<p>💡 Some Advice：<br>
+关于博客的写作语法主要使用的是 <strong>Markdown语法</strong> 和 <strong>HTML超文本编辑语言</strong>【这里推荐<strong>Markdown语法</strong>】 具体如下表：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>对比项</strong></th>
+<th><strong>Markdown</strong></th>
+<th><strong>HTML</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>语法简洁性</strong></td>
+<td>✅ 语法简单，易学易用（如 <code>#</code> 表示标题，<code>*</code> 表示列表）</td>
+<td>❌ 语法复杂，需要标签嵌套（如 <code>&lt;h1&gt;标题&lt;/h1&gt;</code>、<code>&lt;ul&gt;&lt;li&gt;列表&lt;/li&gt;&lt;/ul&gt;</code>）</td>
+</tr>
+<tr>
+<td><strong>可读性</strong></td>
+<td>✅ 原始内容接近纯文本，阅读和编写体验流畅</td>
+<td>❌ 标签和属性混杂，可读性较差（尤其是内容复杂时）</td>
+</tr>
+<tr>
+<td><strong>功能支持</strong></td>
+<td>⚠️ 基础排版（标题、列表、链接等），复杂功能依赖扩展或混合 HTML</td>
+<td>✅ 支持所有网页功能（表格、表单、多媒体、CSS/JS 等），灵活性极高</td>
+</tr>
+<tr>
+<td><strong>学习曲线</strong></td>
+<td>🟢 新手友好，10 分钟即可掌握常用语法</td>
+<td>🔴 需学习大量标签和属性，适合有前端基础的用户</td>
+</tr>
+<tr>
+<td><strong>扩展性</strong></td>
+<td>❌ 依赖解析器，部分平台可能不支持扩展语法（如流程图）</td>
+<td>✅ 可通过 CSS/JavaScript 实现任意视觉效果和交互</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>快速撰写内容型博客（如技术文档、笔记）</td>
+<td>需要复杂排版或交互的网页（如企业网站、动态博客）</td>
+</tr>
+<tr>
+<td><strong>工具生态</strong></td>
+<td>🟢 多数静态网站生成器（如 Hexo、Jekyll）和平台（如 GitHub、Notion）原生支持</td>
+<td>🟢 所有浏览器和网页编辑器支持，但需专业工具（如 Dreamweaver）提升效率</td>
+</tr>
+<tr>
+<td><strong>兼容性</strong></td>
+<td>⚠️ 不同解析器可能渲染结果不一致（如表格语法差异）</td>
+<td>✅ 标准化语言，各浏览器渲染一致</td>
+</tr>
+<tr>
+<td><strong>典型代码示例</strong></td>
+<td><code>markdown&lt;br&gt;# 标题&lt;br&gt;- 列表项&lt;br&gt;[链接](url)&lt;br&gt;</code></td>
+<td><code>html&lt;br&gt;&lt;h1&gt;标题&lt;/h1&gt;&lt;ul&gt;&lt;li&gt;列表项&lt;/li&gt;&lt;/ul&gt;&lt;a href=&quot;url&quot;&gt;链接&lt;/a&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>关于<strong>Markdown语法的具体编写方式</strong> 可参考我的这篇博客：<strong><a href="https://sheep-coding.github.io/post/markdown/">点击查看</a></strong></p>
+<p><strong>🚀编写好博客内容%标题之后就可以选择一个封面、标签</strong>【这一步可选做】 <mark>保存并发布</mark> 啦</p>
+<h3 id="2-细节配置">2. 细节配置</h3>
+<ul>
+<li>
+<p>封面：包含图片 <strong>【支持本地上传或外部链接】</strong> --- <strong>[·非必要·]</strong></p>
+<ul>
+<li>上传图片：点击选择本地图片文件，支持 <code>.jpg</code>、<code>.jpeg</code>、<code>.png</code>、<code>.gif</code> 等格式</li>
+<li>外部链接：输入完整图片 URL，确保跨域资源共享（CORS）设置允许跨站访问</li>
+</ul>
+<hr>
+</li>
+<li>
+<p>标签：为文章 <strong>添加分类或主题</strong>，有助于 <strong>搜索引擎优化（SEO）和内容导航</strong> --- <strong>[·建议·]</strong></p>
+<ul>
+<li>每个标签都是一个<strong>独立的页面</strong>，显示具有相同标签的所有文章</li>
+<li><strong>标签名应简洁明了</strong>，描述文章主题（如 <code>技术</code>、<code>生活</code>、<code>学习</code>）</li>
+<li>建议最多使用 3 个标签，<strong>保持简洁性</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>自定义URL：<strong>让你的文章路径更简洁</strong> --- <strong>[·建议·]</strong>
+<ul>
+<li>自定义URL是指用户可以 <strong>为文章指定一个自定义的URL路径，而不是使用默认的标题作为URL</strong></li>
+<li>自定义URL可以包含<code>字母</code>、<code>数字</code>、<code>下划线</code>和<code>短横线</code>，<strong>不区分大小写</strong></li>
+<li>自定义 <strong>URL必须是唯一的</strong>，不能与其他文章冲突</li>
+<li>自定义URL可以<strong>用于SEO优化，搜索引擎会将自定义URL视为文章的<code>永久链接</code></strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="主题配置">主题配置</h2>
+<h3 id="1-安装主题">1. 安装主题</h3>
+<ul>
+<li>
+<p>访问 Gridea 官方主题商店 <strong><a href="https://open.gridea.dev/themes">主题商店</a></strong></p>
+</li>
+<li>
+<p>搜索并选择你喜欢的主题，点击安装</p>
+  <details>
+  <summary>详情操作</summary>
+<ol>
+<li><strong>访问该主题的GitHub仓库</strong></li>
+<li><strong>下拉找到对应的主题然后下载压缩包文件<code>.zip</code>并且解压</strong></li>
+<li>解压完的文件一整个复制到<strong>Griea的主题文件夹里</strong>【<code>C:\Users\用户名\Documents\Gridea\themes</code>】</li>
+<li><strong>重启Griea之后就可以在 &lt;主题&gt; 里应用此主题</strong></li>
+</ol>
+  </details>
+</li>
+</ul>
+<h3 id="2-后续配置">2. 后续配置</h3>
+<ul>
+<li>有的主题涵盖多种主题配色<strong>选择一个合适的配色并应用</strong></li>
+<li>可以自行配置 <strong>谷歌统计</strong> 以及 <strong>评论系统</strong><br>
+详细分析见下<br>
+以下是优化后的 Gridea 主题对比表格，增加了视觉元素和细节描述，使内容更生动直观：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>主题</strong></th>
+<th><strong>设计风格</strong></th>
+<th><strong>核心特点</strong></th>
+<th><strong>适用场景</strong></th>
+<th><strong>视觉符号</strong></th>
+<th><strong>综合评分</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🌌 Pure</strong></td>
+<td><strong>科幻极简风</strong></td>
+<td>✅ <strong>无界留白</strong>：纯黑/白背景沉浸式阅读<br>✅ <strong>代码友好</strong>：支持 <code>LaTeX</code> 公式 + 代码高亮<br>✅ <strong>动态响应</strong>：平滑暗色模式切换</td>
+<td>技术博客/开源文档</td>
+<td>🖥️📐💻</td>
+<td>⭐⭐⭐⭐☆ (4.5)</td>
+</tr>
+<tr>
+<td><strong>📜 Paper</strong></td>
+<td><strong>复古手账风</strong></td>
+<td>✅ <strong>纸质肌理</strong>：米黄背景 + 毛边阴影<br>✅ <strong>文艺排版</strong>：衬线标题 + 墨水色文字<br>✅ <strong>复古元素</strong>：邮票式标签 + 咖啡渍效果</td>
+<td>散文/诗歌/旅行笔记</td>
+<td>✒️☕📖</td>
+<td>⭐⭐⭐☆ (3.5)</td>
+</tr>
+<tr>
+<td><strong>🍃 Simple</strong></td>
+<td><strong>空气感扁平风</strong></td>
+<td>✅ <strong>轻盈呼吸</strong>：纯白背景 + 微渐变按钮<br>✅ <strong>瀑布流图库</strong>：智能图片裁切 + 悬浮放大<br>✅ <strong>零负担体验</strong>：秒级加载 + 全屏聚焦模式</td>
+<td>摄影/短内容/轻博客</td>
+<td>📸🌫️⚡</td>
+<td>⭐⭐⭐⭐ (4.0)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="深度对比指南"><strong>深度对比指南</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>维度</strong></th>
+<th><strong>Pure</strong></th>
+<th><strong>Paper</strong></th>
+<th><strong>Simple</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>字体系统</strong></td>
+<td>🔹 等宽代码字体<br>🔹 无衬线正文字体</td>
+<td>🔹 手写英文标题<br>🔹 衬线中文字体</td>
+<td>🔹 超细无衬线字体<br>🔹 字重层次丰富</td>
+</tr>
+<tr>
+<td><strong>动效细节</strong></td>
+<td>✨ 代码块荧光边框</td>
+<td>✨ 翻页纸张沙沙音效</td>
+<td>✨ 图片悬停3D浮起</td>
+</tr>
+<tr>
+<td><strong>特色组件</strong></td>
+<td>▫️ 数学公式渲染器<br>▫️ API文档模板</td>
+<td>▫️ 墨水渍装饰<br>▫️ 信纸式评论区</td>
+<td>▫️ 全屏画廊<br>▫️ 微语录卡片</td>
+</tr>
+<tr>
+<td><strong>移动体验</strong></td>
+<td>📱 目录导航浮动窗</td>
+<td>📱 纸质纹理缩放防失真</td>
+<td>📱 图片自适应懒加载</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<blockquote>
+<p><strong>🎯 选择决策树</strong></p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIr4GhlLz1wZ6Nl2IvF-bhiB4FNGcoWAALzFwACKBcoV5_E14ltuo_6NgQ.png" alt="" loading="lazy"></figure>
+<blockquote>
+<p>💎 <strong>终极建议</strong>：</p>
+<ul>
+<li>写 <strong>React/Vue教程</strong> → 选 <code>Pure</code>，公式与代码完美兼容</li>
+<li>记录 <strong>京都樱花之旅</strong> → 选 <code>Paper</code>，手账风唤醒旅行记忆</li>
+<li>发布 <strong>手机摄影集</strong> → 选 <code>Simple</code>，让图片自己说话</li>
+</ul>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Grdea + Github Pages 搭建个人博客]]></title>
+        <id>https://sheep-coding.github.io/post/gr-git-blog/</id>
+        <link href="https://sheep-coding.github.io/post/gr-git-blog/">
+        </link>
+        <updated>2025-05-31T09:22:56.000Z</updated>
+        <summary type="html"><![CDATA[<p>🖥️拥有一个像这样的 <strong>小破站</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>🖥️拥有一个像这样的 <strong>小破站</strong></p>
+<!-- more -->
+<h2 id="准备工作">准备工作</h2>
+<blockquote>
+<ol>
+<li>拥有一个 <strong>Github账号</strong></li>
+<li>下载 <strong><a href="https://open.gridea.dev/#started">Grdea</a></strong></li>
+<li><strong>足够的耐心与热爱</strong></li>
+</ol>
+</blockquote>
+<h2 id="软件配置">软件配置</h2>
+<ol>
+<li>
+<h3 id="github-账号">Github 账号</h3>
+</li>
+</ol>
+<details>
+<summary>注册账号</summary>
+<ol>
+<li>打开 <a href="https://github.com/">Github</a></li>
+<li>填写邮箱、密码、用户名</li>
+<li>点击 <strong>Sign up</strong> 注册</li>
+</ol>
+</details>
+<details>
+<summary>新建仓库</summary>
+<ol>
+<li>点击右上角 <strong>+</strong> 号</li>
+<li>选择 <strong>New repository</strong></li>
+<li>填写仓库名称（必须安格式填写）<br>
+<code>&lt;用户名&gt;.github.io</code></li>
+<li>点击 <strong>Create repository</strong> 完成创建</li>
+</ol>
+</details>
+<p><a href="https://www.bilibili.com/video/BV1eE421M7Wr?t=44.8"><strong>点击观看B站视频</strong></a></p>
+<ol start="2">
+<li>
+<h3 id="grdea-配置">Grdea 配置</h3>
+</li>
+</ol>
+<p>打开 <strong>Grdea</strong><br>
+<img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIXUWg6cZYHSa5l1U0krtLnQM7Q1g9JAAKUFwACM5vQVWz3blJzSu5uNgQ.png" alt="" loading="lazy"><br>
+点击 <strong>&lt;远程&gt;</strong><br>
+<img src="https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAIXdGg6wmLbYdi_1EhNr60KRmv8xF3rAAKgFwACiKvZVasriS3q4iuzNgQ.png" alt="" loading="lazy"><br>
+点击 <strong>Github</strong></p>
+<h2 id="github-pages免费域名">Github Pages免费域名</h2>
+<blockquote>
+<p>⚠️ 注意：</p>
+<ol>
+<li>域名必须是 <strong>Github</strong> 账号的用户名</li>
+<li>确保各项信息正确（特别是令牌号）</li>
+</ol>
+<details>
+<summary>获取令牌号</summary>
+</blockquote>
+<h1 id="gridea-github-pages-搭建个人博客-获取github令牌号教程">Gridea + Github Pages 搭建个人博客 - 获取Github令牌号教程</h1>
+<p>要使用Gridea管理你的GitHub Pages博客，你需要获取GitHub的个人访问令牌（Personal Access Token）。以下是详细的获取步骤：</p>
+<h2 id="1-登录github">1. 登录GitHub</h2>
+<p>首先确保你已经登录到GitHub账号。</p>
+<h2 id="2-创建新的访问令牌">2. 创建新的访问令牌</h2>
+<ol>
+<li>点击右上角你的头像</li>
+<li>选择 &quot;Settings&quot;（设置）</li>
+<li>在左侧边栏底部找到 &quot;Developer settings&quot;（开发者设置）</li>
+<li>点击 &quot;Personal access tokens&quot;（个人访问令牌）</li>
+<li>选择 &quot;Tokens (classic)&quot;（经典令牌）</li>
+<li>点击 &quot;Generate new token&quot;（生成新令牌）</li>
+<li>选择 &quot;Generate new token (classic)&quot;（生成经典令牌）</li>
+</ol>
+<h2 id="3-配置令牌信息">3. 配置令牌信息</h2>
+<ol>
+<li>在 &quot;Note&quot;（备注）处填写一个便于识别的名称，比如 &quot;Gridea&quot;</li>
+<li>设置令牌的有效期（建议选择 &quot;No expiration&quot;，即永不过期）</li>
+<li>权限选择：<mcreference link="https://scl100.github.io/grideajiaocheng/" index="1">为了确保Gridea能够正常管理你的GitHub Pages，建议将所有权限都勾选上</mcreference></li>
+</ol>
+<h2 id="4-保存令牌">4. 保存令牌</h2>
+<ol>
+<li>点击页面底部的 &quot;Generate token&quot;（生成令牌）按钮</li>
+<li><strong>重要提醒</strong>：<mcreference link="https://scl100.github.io/grideajiaocheng/" index="1">请立即复制并保存生成的令牌，因为关闭页面后你将无法再次查看它</mcreference></li>
+</ol>
+<h2 id="5-在gridea中使用令牌">5. 在Gridea中使用令牌</h2>
+<ol>
+<li>打开Gridea软件</li>
+<li>进入设置页面</li>
+<li>在「远程」设置中：
+<ul>
+<li>填写你的GitHub用户名</li>
+<li>将刚才保存的令牌粘贴到「Token」输入框中</li>
+<li>填写你的GitHub Pages仓库名（通常是 username.github.io）</li>
+<li>分支选择 main 或 master</li>
+</ul>
+</li>
+</ol>
+<h2 id="6-测试连接">6. 测试连接</h2>
+<p><mcreference link="https://sspai.com/post/54212" index="2">配置完成后，点击「检测远程连接」按钮测试连接是否正常。如果显示连接成功，就说明令牌配置正确，Gridea已经成功连接到你的GitHub Pages</mcreference></p>
+<h2 id="注意事项">注意事项</h2>
+<blockquote>
+<ol>
+<li>请妥善保管你的访问令牌，不要分享给他人</li>
+<li>如果令牌泄露，请立即到GitHub中删除该令牌并创建新的</li>
+<li>如果你在使用过程中遇到同步问题，可以尝试重新生成令牌</li>
+</ol>
+</blockquote>
+<p>完成以上步骤后，你就可以使用Gridea来管理和发布你的博客文章了</p>
+</details>
+<hr>
+<h2 id="4-更新博客">4. 更新博客</h2>
+<p>几乎任何云端部署的信息都是要在 <strong>本地部署</strong> 后再上传到云端的<br>
+所以我们需要 <strong>先在本地部署好博客后再上传到云端</strong></p>
+<p>对于高效码字来说，一些好的 <strong>软件</strong> 至关重要</p>
+<h3 id="推荐软件">推荐软件</h3>
+<ol>
+<li><a href="https://typora.io/">Typora</a> - 一款简洁优雅的Markdown编辑器 ⭐⭐⭐</li>
+<li><a href="https://code.visualstudio.com/">VSCode</a> - 微软开发的轻量级代码编辑器⭐⭐</li>
+<li><a href="https://traeide.com/">Trae IDE</a> - 基于VSCode的AI增强型集成开发环境⭐⭐⭐⭐</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[本地部署模型时遇到的常见问题]]></title>
+        <id>https://sheep-coding.github.io/post/q-bs-ollama/</id>
+        <link href="https://sheep-coding.github.io/post/q-bs-ollama/">
+        </link>
+        <updated>2025-05-13T14:01:51.000Z</updated>
+        <summary type="html"><![CDATA[<p>✍️  <strong>针对 Ollama 本地部署的一些答复</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>✍️  <strong>针对 Ollama 本地部署的一些答复</strong></p>
+<!-- more -->
+<p><strong><a href="https://sheep-coding.github.io/post/bs-ollama/">建议搭配博客查看</a></strong></p>
+<h2 id="运行问题">运行问题：</h2>
+<blockquote>
+<ul>
+<li>当部署完成以后，想要<strong>再次运行</strong>时，只需要：
+<ol>
+<li><strong>打开 <code>PowerShell</code> （无需管理员身份）</strong></li>
+<li>输入<strong>对应模型的安装命令</strong>即可</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<h2 id="模型不可用问题">模型不可用问题：</h2>
+<blockquote>
+<ul>
+<li>输入下载命令发现<em><strong>模型不可用问题</strong></em>——
+<ol>
+<li>检查 <strong>Ollama Setup.exe</strong> 是否正常【<strong>打开<code>PowerShell</code>（无需管理员身份</strong>】[输入<strong>ollama</strong>查看输出。正常输出如下]</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<hr>
+<pre><code class="language-txt">PS C:\Users\用户名&gt; ollama
+Usage:
+  ollama [flags]
+  ollama [command]
+
+Available Commands:
+  serve       Start ollama
+  create      Create a model from a Modelfile
+  show        Show information for a model
+  run         Run a model
+  pull        Pull a model from a registry
+  push        Push a model to a registry
+  list        List models
+  ps          List running models
+  cp          Copy a model
+  rm          Remove a model
+  help        Help about any command
+
+Flags:
+  -h, --help      help for ollama
+  -v, --version   Show version information
+
+Use &quot;ollama [command] --help&quot; for more information about a command.
+PS C:\Users\用户名&gt;
+</code></pre>
+<p><strong>[下载模型正常输出]</strong></p>
+<pre><code>PS C:\Users\wmy66&gt; ollama run llama3.1:8b
+pulling manifest
+pulling 8eeb52dfb3bb...
+91%▕██████████████████████████████████████████████████      ▏ 
+4.2 GB/4.7 GB  207 KB/s  35m26s 
+</code></pre>
+<hr>
+<p>若是这段输出<strong>Ollama Setup.exe</strong>基本正常，若还是不行就<strong>重新下载</strong> <strong><a href="https://sheep-coding.github.io/post/bs-ollama/">点我查看博客</a></strong><br>
+要么就是<strong>模型与电脑配置不匹配</strong>，<strong>换一个模型</strong></p>
+<h2 id="语言问题">语言问题：</h2>
+<blockquote>
+<ul>
+<li>这个模型默认语言是英语，对于大陆用户来说，要让让它用中文回复只需一步
+<ol>
+<li>输入<code>请用中文回复</code>即可</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="模型卡顿问题">模型卡顿问题：</h2>
+<blockquote>
+<ul>
+<li>模型卡顿问题，一般是因为<strong>显卡显存不足</strong>，解决方法如下：
+<ol>
+<li><strong>关闭</strong>电脑上其他<strong>占用显存</strong>的软件</li>
+<li><strong>关闭</strong>电脑上其他<strong>占用显存</strong>的软件</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<p><strong><a href="https://sheep-coding.github.io/post/bs-ollama/">建议搭配博客查看</a></strong></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[如何制作 Win To Go(WTG)]]></title>
+        <id>https://sheep-coding.github.io/post/wtg/</id>
+        <link href="https://sheep-coding.github.io/post/wtg/">
+        </link>
+        <updated>2025-05-11T03:21:58.000Z</updated>
+        <summary type="html"><![CDATA[<p>💿你的<strong>U盘/SSD</strong>上将会有<strong>一台电脑！</strong><br>
+💼<strong>随身携带，外出无忧</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>💿你的<strong>U盘/SSD</strong>上将会有<strong>一台电脑！</strong><br>
+💼<strong>随身携带，外出无忧</strong></p>
+<!-- more -->
+<h2 id="win-to-go-介绍">Win To go 介绍</h2>
+<blockquote>
+<p>win to go 的全称为<strong>Windows to go</strong>，是一种<strong>免安装</strong>的<strong>Windows 系统</strong>（安装在U盘或SSD固态硬盘上）</p>
+<p>它可以在<strong>任何电脑</strong>上运行，并且可以<strong>运行任何 Windows 应用程序</strong>，包括<strong>Windows 10</strong>、<strong>Windows 8</strong>、<strong>Windows 7</strong>等。</p>
+</blockquote>
+<h2 id="准备工作">准备工作</h2>
+<ol>
+<li>准备一个<strong>U盘</strong>或<strong>SSD固态硬盘</strong>，容量至少为<strong>8GB</strong></li>
+<li>准备一个<strong>Windows系统镜像文件</strong>，例如<strong>Windows 10镜像文件</strong></li>
+<li>准备一个<strong>Win To Go</strong>制作工具/写盘工具，例如 <em><strong><a href="https://rufus.ie/">Rufus</a></strong></em></li>
+</ol>
+<h2 id="制作win-to-go">制作Win To Go</h2>
+<ol>
+<li>
+<p>打开<strong>Win To Go</strong>制作工具/写盘工具，选择 <strong>U盘</strong> 或 <strong>SSD固态硬盘</strong></p>
+</li>
+<li>
+<p>选择一个 <strong>Windows 系统镜像文件</strong>（Win 8 以上）</p>
+</li>
+<li>
+<p>选择<strong>引导模式</strong>，一般选择<strong>UEFI</strong><br>
+a）如何查看电脑的引导模式 ？</p>
+<blockquote>
+<p><code>win + r</code> 打开 <strong>运行</strong> ，输入 <code>msinfo32</code> ，回车即可打开 <strong>系统信息</strong> 窗口，在 <strong>系统信息</strong> 窗口中，找到 <strong>系统类型/Bios</strong> ，即可查看电脑的引导模式。</p>
+</blockquote>
+</li>
+<li>
+<p>打开所需软件（Rufus）<br>
+选择好SSD固态硬盘后，点击 <strong>选择</strong> 按钮，选择 <strong>Windows系统镜像文件</strong></p>
+<p>然后点击 <strong>启动</strong> 按钮，选择 <strong>分区类型</strong> ，其他的保持默认即可</p>
+<p>点击<strong>开始制作</strong>即可开始制作Win To Go 等待制作完成即可</p>
+<figure data-type="image" tabindex="1"><img src="https://img.remit.ee/api/file/AgACAgUAAyEGAASHRsPbAAIHtGgclWp4NTGVTZBckNSrX-q9aQV_AALkyzEb1S3pVAb22BfnDTLOAQADAgADeQADNgQ.png" alt="Rufus软件界面" loading="lazy"></figure>
+</li>
+<li>
+<p>制作完成后，将U盘或SSD固态硬盘插入电脑，进入BIOS<br>
+【BIOS主板进入方法/快捷键】</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://img.remit.ee/api/file/AgACAgUAAyEGAASHRsPbAAIHt2gclWsC_lgPkcbfIpRcXjG_s_8JAALnyzEb1S3pVNSl0838VPo6AQADAgADeQADNgQ.png" alt="BIOS启动菜单界面" loading="lazy"></figure>
+<ul>
+<li><strong>进入BIOS后，找到启动选项，将U盘或SSD固态硬盘设置为第一启动项</strong><br>
+【不同BIOS进入按键不同】--- 如下图所示：</li>
+</ul>
+<h1 id="电脑启动按键速查表">电脑启动按键速查表</h1>
+<table>
+<thead>
+<tr>
+<th>主板品牌</th>
+<th>启动按键</th>
+<th>笔记本品牌</th>
+<th>启动按键</th>
+<th>台式机品牌</th>
+<th>启动按键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>华硕主板</td>
+<td><code>F8</code></td>
+<td>联想笔记本</td>
+<td><code>F12</code></td>
+<td>联想台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>技嘉主板</td>
+<td><code>F12</code></td>
+<td>宏基笔记本</td>
+<td><code>F1</code></td>
+<td>惠普台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>微星主板</td>
+<td><code>F11</code></td>
+<td>华硕笔记本</td>
+<td><code>ESC</code></td>
+<td>宏基台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>映泰主板</td>
+<td><code>F99</code></td>
+<td>惠普笔记本</td>
+<td><code>F9</code></td>
+<td>戴尔台式机</td>
+<td><code>ESC</code></td>
+</tr>
+<tr>
+<td>梅捷主板</td>
+<td><code>ESC</code> 或 <code>F12</code></td>
+<td>联想 Thinkpad</td>
+<td><code>F12</code></td>
+<td>神舟台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>七彩虹主板</td>
+<td><code>ESC</code> 或 <code>F11</code></td>
+<td>戴尔笔记本</td>
+<td><code>F12</code></td>
+<td>华硕台式机</td>
+<td><code>F8</code></td>
+</tr>
+<tr>
+<td>华擎主板</td>
+<td><code>F11</code></td>
+<td>神舟笔记本</td>
+<td><code>F12</code></td>
+<td>方正台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>斯巴达卡主板</td>
+<td><code>ESC</code></td>
+<td>东芝笔记本</td>
+<td><code>F12</code></td>
+<td>清华同方台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>昂达主板</td>
+<td><code>F11</code></td>
+<td>三星笔记本</td>
+<td><code>F12</code></td>
+<td>海尔台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>双敏主板</td>
+<td><code>ESC</code></td>
+<td>IBM 笔记本</td>
+<td><code>F12</code></td>
+<td>明基台式机</td>
+<td><code>F8</code></td>
+</tr>
+<tr>
+<td>翔升主板</td>
+<td><code>F10</code></td>
+<td>富士通笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>精英主板</td>
+<td><code>ESC</code> 或 <code>F11</code></td>
+<td>海尔笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>冠盟主板</td>
+<td><code>F11</code> 或 <code>F12</code></td>
+<td>方正笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>富士康主板</td>
+<td><code>ESC</code> 或 <code>F12</code></td>
+<td>清华同方笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>顶星主板</td>
+<td><code>F11</code> 或 <code>F12</code></td>
+<td>微星笔记本</td>
+<td><code>F11</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>铭暄主板</td>
+<td><code>ESC</code></td>
+<td>明基笔记本</td>
+<td><code>F9</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>盈通主板</td>
+<td><code>ESC</code> 或 <code>F11</code></td>
+<td>技嘉笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>捷波主板</td>
+<td><code>ESC</code></td>
+<td>Gateway 笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel 主板</td>
+<td><code>F10</code></td>
+<td>eMachines 笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>杰微主板</td>
+<td><code>ESC</code> 或 <code>F8</code></td>
+<td>索尼笔记本</td>
+<td><code>ESC</code> 或 <code>F2</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>致铭主板</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>馨英主板</td>
+<td><code>ESC</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>睿正主板</td>
+<td><code>ESC</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>冠铭主板</td>
+<td><code>F9</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>冠铭主板</td>
+<td><code>F11</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="注意事项">注意事项</h2>
+<blockquote>
+<ol>
+<li>制作Win To Go时，需要选择 <strong>UEFI</strong> 引导模式</li>
+<li>制作Win To Go时，需要选择 <strong>Windows系统镜像文件</strong>（Win 8 以上）</li>
+</ol>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[本地部署模型（ollama为例）]]></title>
+        <id>https://sheep-coding.github.io/post/bs-ollama/</id>
+        <link href="https://sheep-coding.github.io/post/bs-ollama/">
+        </link>
+        <updated>2025-05-08T13:00:53.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  <strong>学习本地部署</strong><br>
+✍️  <strong>断网吃硬件，连接不随缘</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  <strong>学习本地部署</strong><br>
+✍️  <strong>断网吃硬件，连接不随缘</strong></p>
+<!-- more -->
+<blockquote>
+<p><strong>前言</strong> ：这个方法是部署模型最简单的方法，但不一定是最好的 <strong>（取决于你的电脑系统 or 配置）</strong> 大家酌情考虑</p>
+</blockquote>
+<h3 id="为什么需要本地部署">为什么需要本地部署？</h3>
+<blockquote>
+<p>相信你之前也遇到过类似的情况：</p>
+</blockquote>
+<ol>
+<li>在外面<strong>没有网络</strong>，依靠<em><strong>百度战神</strong></em>查资料是不可能了，十分不便</li>
+<li>想玩一些开源大模型【如：<strong>ollama GML gemma</strong> 等】，访问这类网站在国内是要被墙的，<strong>挂VPN又《可刑可铐》</strong>，或者是找一个<em><strong>镜像站</strong></em>既不安全，又不稳定，令人苦恼</li>
+<li>没有浏览器（虽然大多数都有）</li>
+</ol>
+<blockquote>
+<p>如果你是大陆用户，或者是恰恰有遇到以上的这些问题，那这个方法就很适合你！</p>
+</blockquote>
+<hr>
+<h4 id="访问官网下载环境">访问官网/下载环境</h4>
+<p>链接【以<em><strong>ollama</strong></em>为例】</p>
+<p><strong><a href="https://ollama.com/">点击跳转</a></strong></p>
+<blockquote>
+<p><strong>点击 <a href="https://ollama.com/">Download</a></strong><br>
+选择适合你的系统下载版本（<strong>Windows &amp; MacOs &amp; Linux</strong>）<br>
+这里以 <strong>Windows</strong> 为例：<br>
+运行下载好的安装程序 <em><strong>Ollama Setup.exe</strong></em> 这里<strong>点击 <code>Install</code> 即可</strong></p>
+</blockquote>
+<hr>
+<h4 id="搜索部署模型">搜索/部署模型</h4>
+<blockquote>
+<p><em><strong>Ollama Setup.exe</strong></em> 安装好以后就可以<strong>搜索并部署模型</strong>了(～￣▽￣)～<br>
+方法也是 <em><strong><code>肥肠</code></strong></em> 的简单啊~</p>
+</blockquote>
+<h5 id="子标题搜索">子标题：搜索</h5>
+<ul>
+<li><strong>回到 ollama 官网</strong> <strong><a href="https://ollama.com/">点击跳转</a></strong> ，并点击上方的搜索栏，在搜索栏中<em><strong>搜索你想要的模型编号即可</strong></em>【如：ollama GML gemma 等】</li>
+<li>点击你想要的模型后 <strong>（以 llama 3.1 模型为例）</strong> <strong><a href="https://ollama.com/library/llama3.1">点击示例</a></strong> 在此界面中你可以<strong>选择模型的型号 <em>【如：8b 70b 405b】</em></strong> 左侧即是安装命令了</li>
+</ul>
+<h6 id="up-自己整理理了一些常用的开源模型如下">Up 自己整理理了一些常用的开源模型，如下：</h6>
+<ul>
+<li>
+<p><strong><a href="https://ollama.com/library/llama3.1:8b">Ollama 3.1</a></strong> <strong>(8b 70b 405b 同理)</strong></p>
+</li>
+<li>
+<p><strong><a href="https://ollama.com/library/gemma2">gemma 2</a></strong> <strong>(2b 9b 27b)</strong></p>
+</li>
+<li>
+<p><strong><a href="https://ollama.com/library/phi3.5">phi 3.5</a></strong> <strong>(3.8b模型)</strong></p>
+</li>
+</ul>
+<h5 id="子标题部署">子标题：部署</h5>
+<ol>
+<li>打开 <strong><code>PowerShell</code></strong> ，为了万无一失建议先输入<strong>ollama</strong>，查看一下当前运行情况如果<strong>有输出</strong>则没问题</li>
+<li>输入模型对应的安装命令【如<strong>ollama</strong>的模型部署命令就是 <strong>{ollama run llama3.1:8b}</strong>】即可</li>
+</ol>
+<hr>
+<h4 id="模型要求">模型要求</h4>
+<blockquote>
+<p>Windows：<strong>3060以上</strong>显卡+<strong>8G以上</strong>显存+<strong>16G内存</strong>，硬盘空间至少<strong>20G</strong><br>
+Mac：<strong>M1或M2芯片</strong> 16G内存，<strong>20G以上硬盘空间</strong></p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[大陆用户如何访问Github]]></title>
+        <id>https://sheep-coding.github.io/post/fw-github/</id>
+        <link href="https://sheep-coding.github.io/post/fw-github/">
+        </link>
+        <updated>2025-05-08T12:54:31.000Z</updated>
+        <summary type="html"><![CDATA[<p>🚀 Github，一个<strong>全球性开源平台</strong><br>
+🖥️ 适合不同人群的不同大量<strong>优质开源资源及开源作品</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>🚀 Github，一个<strong>全球性开源平台</strong><br>
+🖥️ 适合不同人群的不同大量<strong>优质开源资源及开源作品</strong></p>
+<!-- more -->
+<h2 id="github是什么">Github是什么？</h2>
+<blockquote>
+<p>Github是一个<strong>全球性开源平台</strong>。在此平台上有适合不同人群的不同大量<strong>优质开源资源及开源作品</strong>——Github一直与<strong>微软（Microsoft）<strong>有着亲密的关系，是微软的</strong>长期合作伙伴</strong>，安全性双重保障，可以放心使用！Github主要面向<strong>开发者群体</strong>，所谓开源就是<strong>开放源码</strong>的意思。</p>
+</blockquote>
+<h2 id="访问github">访问Github</h2>
+<h4 id="国内遇到的问题">国内遇到的问题</h4>
+<blockquote>
+<p><em><strong>《众嗦粥汁》</strong></em>，Github的服务器（大多数）都是在美国，或者其它地区，对于大陆用户来说，如果没有<strong>魔法/梯子</strong>，几乎是不可能访问的，这多少给一些（大陆）开发者带来了不便<br>
+<img src="https://img.remit.ee/api/file/AgACAgUAAyEGAASHRsPbAAIHsmgclWQKp49CNXXGxrL1uw8u8bcgAALiyzEb1S3pVAbt5HyaZgABfgEAAwIAA20AAzYE.jpg" alt="焦虑" loading="lazy"></p>
+</blockquote>
+<h4 id="办法来啦">办法来啦！！！</h4>
+<blockquote>
+<p>方法也是 <strong><code>肥肠的简单</code></strong>,只需一个加速器—— <strong>Watt Toolkit</strong>（原来叫steam++）</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://img.remit.ee/api/file/AgACAgUAAyEGAASHRsPbAAIHs2gclWgKyrPL7tm83yrCDNNu7FKHAALjyzEb1S3pVFliEs_rAU07AQADAgADdwADNgQ.png" alt="alt text" loading="lazy"></figure>
+<blockquote>
+<p>下载的方法也是特别简单</p>
+</blockquote>
+<h6 id="浏览器下载">浏览器下载</h6>
+<blockquote>
+<p><strong>Watt Toolkit</strong>链接<a href="https://steampp.net/">点击跳转</a></p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[软件分享#1]]></title>
+        <id>https://sheep-coding.github.io/post/rj-1/</id>
+        <link href="https://sheep-coding.github.io/post/rj-1/">
+        </link>
+        <updated>2025-05-08T11:34:13.000Z</updated>
+        <summary type="html"><![CDATA[<p>🖥️<strong>博客搭建·编程·效率工具·文件处理</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>🖥️<strong>博客搭建·编程·效率工具·文件处理</strong></p>
+<!-- more -->
+<h1 id="软件分享-1">📦 软件分享 #1</h1>
+<p><em>——博客搭建·编程·效率工具·文件处理——</em></p>
+<hr>
+<h2 id="博客搭建工具">🌐 博客搭建工具</h2>
+<h3 id="一-hexo">一、Hexo</h3>
+<p>🔗 <a href="https://hexo.io/zh-cn/">官网链接</a><br>
+✨ <strong>特点</strong>：</p>
+<ul>
+<li>快速生成静态博客</li>
+<li>支持Markdown解析</li>
+<li>轻量高效</li>
+</ul>
+<hr>
+<h3 id="二-gridea">二、Gridea</h3>
+<p>🔗 <a href="https://gridea.dev/">官网链接</a> | <a href="https://gridea.dev/docs/">中文文档</a> | <a href="https://gridea.dev/community/">社区</a> | <a href="https://gridea.dev/themes/">主题库</a></p>
+<p>✨ <strong>核心功能</strong>：</p>
+<ul>
+<li><strong>双模式支持</strong>：
+<ul>
+<li>📝 本地Markdown写作</li>
+<li>🚀 一键部署到GitHub Pages/Vercel等平台</li>
+</ul>
+</li>
+<li>丰富的主题生态</li>
+</ul>
+<hr>
+<h2 id="️-效率工具">🛠️ 效率工具</h2>
+<h3 id="三-typora">三、Typora</h3>
+<p>🔗 <a href="https://typora.io/">官网链接</a> | <a href="https://support.typora.io/">中文文档</a> | <a href="https://theme.typora.io/">主题库</a></p>
+<p>✨ <strong>亮点</strong>：</p>
+<ul>
+<li>实时预览Markdown</li>
+<li>极简界面设计</li>
+<li>完美搭配Gridea使用</li>
+</ul>
+<hr>
+<h2 id="开发协作">💻 开发协作</h2>
+<h3 id="四-github">四、GitHub</h3>
+<p>🔗 <a href="https://github.com/">官网链接</a> | <a href="https://docs.github.com/cn">中文文档</a> | <a href="https://github.com/topics/chinese">中文社区</a></p>
+<p>✨ <strong>定位</strong>：</p>
+<ul>
+<li>全球最大代码托管平台</li>
+<li>支持Git版本控制</li>
+</ul>
+<hr>
+<h3 id="五-git">五、Git</h3>
+<p>🔗 <a href="https://git-scm.com/">官网链接</a> | <a href="https://git-scm.com/book/zh/v2">中文文档</a> | <a href="https://git-scm.com/community">社区</a></p>
+<p>✨ <strong>核心能力</strong>：</p>
+<ul>
+<li>分布式版本控制</li>
+<li>高效代码管理</li>
+</ul>
+<hr>
+<blockquote>
+<p>💬 <strong>更多工具推荐？欢迎交流讨论！</strong> 😊</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Markdown 语法说明]]></title>
+        <id>https://sheep-coding.github.io/post/markdown/</id>
+        <link href="https://sheep-coding.github.io/post/markdown/">
+        </link>
+        <updated>2025-05-07T13:41:25.000Z</updated>
+        <summary type="html"><![CDATA[<p>_✒️一种适用于<strong>博客搭建</strong>、<strong>学习笔记</strong>的<strong>极简</strong>语法</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>_✒️一种适用于<strong>博客搭建</strong>、<strong>学习笔记</strong>的<strong>极简</strong>语法</p>
+<!-- more -->
+<h1 id="markdown-效果展示与源码对照">🎨 Markdown 效果展示与源码对照</h1>
+<h2 id="1-标题效果展示">1. 标题效果展示</h2>
+<h3 id="显示效果">显示效果</h3>
+<h1 id="一级标题">🚀 一级标题</h1>
+<h2 id="二级标题">🔍 二级标题</h2>
+<h3 id="三级标题">📌 三级标题</h3>
+<h3 id="源代码">源代码</h3>
+<pre><code class="language-markdown"># 🚀 一级标题
+## 🔍 二级标题
+### 📌 三级标题
+</code></pre>
+<h2 id="2-文本样式效果展示">2. 文本样式效果展示</h2>
+<h3 id="显示效果-2">显示效果</h3>
+<p>这是<strong>加粗文本</strong>，这是<em>斜体文本</em>，这是<s>删除线</s>，这是<code>行内代码</code>，还有<mark>高亮文本</mark>（需支持）</p>
+<h3 id="源代码-2">源代码</h3>
+<pre><code class="language-markdown">这是**加粗文本**，这是*斜体文本*，这是~~删除线~~，这是`行内代码`，还有==高亮文本==（需支持）
+</code></pre>
+<h2 id="3-列表效果展示">3. 列表效果展示</h2>
+<h3 id="显示效果-3">显示效果</h3>
+<ul>
+<li>🍎 水果
+<ul>
+<li>🍏 青苹果</li>
+<li>🍓 草莓</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>第一步</li>
+<li>第二步</li>
+</ol>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox" id="task-item-2148833"><label class="task-list-item-label" for="task-item-2148833"> 完成任务</label></li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox" id="task-item-1857994"><label class="task-list-item-label" for="task-item-1857994"> 待办事项</label></li>
+</ul>
+<h3 id="源代码-3">源代码</h3>
+<pre><code class="language-markdown">- 🍎 水果
+  - 🍏 青苹果
+  - 🍓 草莓
+1. 第一步
+2. 第二步
+- [x] 完成任务
+- [ ] 待办事项
+</code></pre>
+<h2 id="4-表格效果展示">4. 表格效果展示</h2>
+<h3 id="显示效果-4">显示效果</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>价格</th>
+<th>库存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MacBook Pro</td>
+<td>$1,299</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>AirPods</td>
+<td>$159</td>
+<td>⚠️</td>
+</tr>
+</tbody>
+</table>
+<h3 id="源代码-4">源代码</h3>
+<pre><code class="language-markdown">| 项目       | 价格   | 库存 |
+|------------|--------|------|
+| MacBook Pro | $1,299 | ✅ |
+| AirPods    | $159   | ⚠️ |
+</code></pre>
+<h2 id="5-代码块效果展示">5. 代码块效果展示</h2>
+<h3 id="显示效果-5">显示效果</h3>
+<pre><code class="language-python">def hello_world():
+    print(&quot;Hello, Markdown!&quot;)
+</code></pre>
+<h3 id="源代码-5">源代码</h3>
+<pre><code class="language-markdown">```python
+def hello_world():
+    print(&quot;Hello, Markdown!&quot;)
+```
+</code></pre>
+<h2 id="6-引用效果展示">6. 引用效果展示</h2>
+<h3 id="显示效果-6">显示效果</h3>
+<blockquote>
+<p>💡 这是引用内容</p>
+<p>可以多行显示</p>
+</blockquote>
+<h3 id="源代码-6">源代码</h3>
+<pre><code class="language-markdown">&gt; 💡 这是引用内容
+&gt; 
+&gt; 可以多行显示
+</code></pre>
+<h2 id="7-分割线效果展示">7. 分割线效果展示</h2>
+<h3 id="显示效果-7">显示效果</h3>
+<p>上面内容</p>
+<hr>
+<p>下面内容</p>
+<h3 id="源代码-7">源代码</h3>
+<pre><code class="language-markdown">上面内容
+
+---
+下面内容
+</code></pre>
+<h2 id="8-折叠内容效果展示">8. 折叠内容效果展示</h2>
+<h3 id="显示效果-8">显示效果</h3>
+<details>
+<summary>点击展开详情</summary>
+<p>这里是隐藏的内容...</p>
+<ul>
+<li>项目1</li>
+<li>项目2</li>
+</ul>
+</details>
+<h3 id="源代码-8">源代码</h3>
+<pre><code class="language-markdown">&lt;details&gt;
+&lt;summary&gt;点击展开详情&lt;/summary&gt;
+
+这里是隐藏的内容...
+
+- 项目1
+- 项目2
+&lt;/details&gt;
+</code></pre>
+<h2 id="9-数学公式效果展示">9. 数学公式效果展示</h2>
+<h3 id="显示效果-9">显示效果</h3>
+<p>行内公式：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">E=mc^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord"><span class="mord mathdefault">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></p>
+<p>块级公式：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>i</mi><mo>=</mo><mfrac><mrow><mi>n</mi><mo>(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\sum_{i=1}^n i = \frac{n(n+1)}{2}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.929066em;vertical-align:-1.277669em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.113em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<h3 id="源代码-9">源代码</h3>
+<pre><code class="language-markdown">行内公式：$E=mc^2$
+
+块级公式：
+$$
+\sum_{i=1}^n i = \frac{n(n+1)}{2}
+$$
+</code></pre>
+<h2 id="10-链接与图片效果展示">10. 链接与图片效果展示</h2>
+<h3 id="显示效果-10">显示效果</h3>
+<p><a href="https://www.trae.com.cn/home">Trea IDE</a></p>
+<figure data-type="image" tabindex="1"><img src="https://picx.zhimg.com/v2-c22a08d13ea17b8a12d666e0c55cb141_1440w.jpg" alt="示例图片" loading="lazy"></figure>
+<h3 id="源代码-10">源代码</h3>
+<pre><code class="language-markdown">[Trea IDE](https://www.trae.com.cn/home)
+
+![示例图片](https://picx.zhimg.com/v2-c22a08d13ea17b8a12d666e0c55cb141_1440w.jpg)
+</code></pre>
+<h2 id="11-特殊提示效果展示">11. 特殊提示效果展示</h2>
+<h3 id="显示效果-11">显示效果</h3>
+<blockquote>
+<p>💡 <strong>提示</strong>：这是重要提示</p>
+<p>⚠️ <strong>警告</strong>：请注意这个事项</p>
+</blockquote>
+<h3 id="源代码-11">源代码</h3>
+<pre><code class="language-markdown">&gt; 💡 **提示**：这是重要提示
+&gt; 
+&gt; ⚠️ **警告**：请注意这个事项
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://sheep-coding.github.io/post/hello-gridea/</id>
+        <link href="https://sheep-coding.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="https://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>

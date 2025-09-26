@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>如何制作 Win To Go(WTG) | WMsheep</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://sheep-coding.github.io/favicon.ico?v=1758929872719">
+<link rel="stylesheet" href="https://sheep-coding.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="💿你的U盘/SSD上将会有一台电脑！
+💼随身携带，外出无忧
+
+Win To go 介绍
+
+win to go 的全称为Windows to go，是一种免安装的Windows 系统（安装在U盘或SSD固态硬盘上）
+它可以在任何电脑上运行..." />
+    <meta name="keywords" content="Windows,软件,科技" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://sheep-coding.github.io">
+        <img src="https://sheep-coding.github.io/images/avatar.png?v=1758929872719" class="site-logo">
+        <h1 class="site-title">WMsheep</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://sheep-coding.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">如何制作 Win To Go(WTG)</h2>
+            <div class="post-date">2025-05-11</div>
+            
+              <div class="feature-container" style="background-image: url('https://zhongces3.sina.com.cn/product/20221003/4d800cfdeccc69064d02ed21a68bc0b4.jpeg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>💿你的<strong>U盘/SSD</strong>上将会有<strong>一台电脑！</strong><br>
+💼<strong>随身携带，外出无忧</strong></p>
+<!-- more -->
+<h2 id="win-to-go-介绍">Win To go 介绍</h2>
+<blockquote>
+<p>win to go 的全称为<strong>Windows to go</strong>，是一种<strong>免安装</strong>的<strong>Windows 系统</strong>（安装在U盘或SSD固态硬盘上）</p>
+<p>它可以在<strong>任何电脑</strong>上运行，并且可以<strong>运行任何 Windows 应用程序</strong>，包括<strong>Windows 10</strong>、<strong>Windows 8</strong>、<strong>Windows 7</strong>等。</p>
+</blockquote>
+<h2 id="准备工作">准备工作</h2>
+<ol>
+<li>准备一个<strong>U盘</strong>或<strong>SSD固态硬盘</strong>，容量至少为<strong>8GB</strong></li>
+<li>准备一个<strong>Windows系统镜像文件</strong>，例如<strong>Windows 10镜像文件</strong></li>
+<li>准备一个<strong>Win To Go</strong>制作工具/写盘工具，例如 <em><strong><a href="https://rufus.ie/">Rufus</a></strong></em></li>
+</ol>
+<h2 id="制作win-to-go">制作Win To Go</h2>
+<ol>
+<li>
+<p>打开<strong>Win To Go</strong>制作工具/写盘工具，选择 <strong>U盘</strong> 或 <strong>SSD固态硬盘</strong></p>
+</li>
+<li>
+<p>选择一个 <strong>Windows 系统镜像文件</strong>（Win 8 以上）</p>
+</li>
+<li>
+<p>选择<strong>引导模式</strong>，一般选择<strong>UEFI</strong><br>
+a）如何查看电脑的引导模式 ？</p>
+<blockquote>
+<p><code>win + r</code> 打开 <strong>运行</strong> ，输入 <code>msinfo32</code> ，回车即可打开 <strong>系统信息</strong> 窗口，在 <strong>系统信息</strong> 窗口中，找到 <strong>系统类型/Bios</strong> ，即可查看电脑的引导模式。</p>
+</blockquote>
+</li>
+<li>
+<p>打开所需软件（Rufus）<br>
+选择好SSD固态硬盘后，点击 <strong>选择</strong> 按钮，选择 <strong>Windows系统镜像文件</strong></p>
+<p>然后点击 <strong>启动</strong> 按钮，选择 <strong>分区类型</strong> ，其他的保持默认即可</p>
+<p>点击<strong>开始制作</strong>即可开始制作Win To Go 等待制作完成即可</p>
+<figure data-type="image" tabindex="1"><img src="https://img.remit.ee/api/file/AgACAgUAAyEGAASHRsPbAAIHtGgclWp4NTGVTZBckNSrX-q9aQV_AALkyzEb1S3pVAb22BfnDTLOAQADAgADeQADNgQ.png" alt="Rufus软件界面" loading="lazy"></figure>
+</li>
+<li>
+<p>制作完成后，将U盘或SSD固态硬盘插入电脑，进入BIOS<br>
+【BIOS主板进入方法/快捷键】</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://img.remit.ee/api/file/AgACAgUAAyEGAASHRsPbAAIHt2gclWsC_lgPkcbfIpRcXjG_s_8JAALnyzEb1S3pVNSl0838VPo6AQADAgADeQADNgQ.png" alt="BIOS启动菜单界面" loading="lazy"></figure>
+<ul>
+<li><strong>进入BIOS后，找到启动选项，将U盘或SSD固态硬盘设置为第一启动项</strong><br>
+【不同BIOS进入按键不同】--- 如下图所示：</li>
+</ul>
+<h1 id="电脑启动按键速查表">电脑启动按键速查表</h1>
+<table>
+<thead>
+<tr>
+<th>主板品牌</th>
+<th>启动按键</th>
+<th>笔记本品牌</th>
+<th>启动按键</th>
+<th>台式机品牌</th>
+<th>启动按键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>华硕主板</td>
+<td><code>F8</code></td>
+<td>联想笔记本</td>
+<td><code>F12</code></td>
+<td>联想台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>技嘉主板</td>
+<td><code>F12</code></td>
+<td>宏基笔记本</td>
+<td><code>F1</code></td>
+<td>惠普台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>微星主板</td>
+<td><code>F11</code></td>
+<td>华硕笔记本</td>
+<td><code>ESC</code></td>
+<td>宏基台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>映泰主板</td>
+<td><code>F99</code></td>
+<td>惠普笔记本</td>
+<td><code>F9</code></td>
+<td>戴尔台式机</td>
+<td><code>ESC</code></td>
+</tr>
+<tr>
+<td>梅捷主板</td>
+<td><code>ESC</code> 或 <code>F12</code></td>
+<td>联想 Thinkpad</td>
+<td><code>F12</code></td>
+<td>神舟台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>七彩虹主板</td>
+<td><code>ESC</code> 或 <code>F11</code></td>
+<td>戴尔笔记本</td>
+<td><code>F12</code></td>
+<td>华硕台式机</td>
+<td><code>F8</code></td>
+</tr>
+<tr>
+<td>华擎主板</td>
+<td><code>F11</code></td>
+<td>神舟笔记本</td>
+<td><code>F12</code></td>
+<td>方正台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>斯巴达卡主板</td>
+<td><code>ESC</code></td>
+<td>东芝笔记本</td>
+<td><code>F12</code></td>
+<td>清华同方台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>昂达主板</td>
+<td><code>F11</code></td>
+<td>三星笔记本</td>
+<td><code>F12</code></td>
+<td>海尔台式机</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>双敏主板</td>
+<td><code>ESC</code></td>
+<td>IBM 笔记本</td>
+<td><code>F12</code></td>
+<td>明基台式机</td>
+<td><code>F8</code></td>
+</tr>
+<tr>
+<td>翔升主板</td>
+<td><code>F10</code></td>
+<td>富士通笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>精英主板</td>
+<td><code>ESC</code> 或 <code>F11</code></td>
+<td>海尔笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>冠盟主板</td>
+<td><code>F11</code> 或 <code>F12</code></td>
+<td>方正笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>富士康主板</td>
+<td><code>ESC</code> 或 <code>F12</code></td>
+<td>清华同方笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>顶星主板</td>
+<td><code>F11</code> 或 <code>F12</code></td>
+<td>微星笔记本</td>
+<td><code>F11</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>铭暄主板</td>
+<td><code>ESC</code></td>
+<td>明基笔记本</td>
+<td><code>F9</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>盈通主板</td>
+<td><code>ESC</code> 或 <code>F11</code></td>
+<td>技嘉笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>捷波主板</td>
+<td><code>ESC</code></td>
+<td>Gateway 笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Intel 主板</td>
+<td><code>F10</code></td>
+<td>eMachines 笔记本</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>杰微主板</td>
+<td><code>ESC</code> 或 <code>F8</code></td>
+<td>索尼笔记本</td>
+<td><code>ESC</code> 或 <code>F2</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>致铭主板</td>
+<td><code>F12</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>馨英主板</td>
+<td><code>ESC</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>睿正主板</td>
+<td><code>ESC</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>冠铭主板</td>
+<td><code>F9</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>冠铭主板</td>
+<td><code>F11</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="注意事项">注意事项</h2>
+<blockquote>
+<ol>
+<li>制作Win To Go时，需要选择 <strong>UEFI</strong> 引导模式</li>
+<li>制作Win To Go时，需要选择 <strong>Windows系统镜像文件</strong>（Win 8 以上）</li>
+</ol>
+</blockquote>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://sheep-coding.github.io/tag/HGZvjqPf1L/" class="tag">
+                    Windows
+                  </a>
+                
+                  <a href="https://sheep-coding.github.io/tag/Fpg2qhVA_Y/" class="tag">
+                    软件
+                  </a>
+                
+                  <a href="https://sheep-coding.github.io/tag/oAWhKPueHj/" class="tag">
+                    科技
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://sheep-coding.github.io/post/bs-ollama/">
+                  <h3 class="post-title">
+                    本地部署模型（ollama为例）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liqqJfn4S2Q34rNp',
+        clientSecret: '53071e078647c7d1ac0a0a0d772adc088f94d5fd',
+        repo: 'sheep-coding.github.io',
+        owner: 'sheep-coding',
+        admin: ['sheep-coding'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

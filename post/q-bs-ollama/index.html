@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>本地部署模型时遇到的常见问题 | WMsheep</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://sheep-coding.github.io/favicon.ico?v=1758929872719">
+<link rel="stylesheet" href="https://sheep-coding.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="✍️  针对 Ollama 本地部署的一些答复
+
+建议搭配博客查看
+运行问题：
+
+
+当部署完成以后，想要再次运行时，只需要：
+
+打开 PowerShell （无需管理员身份）
+输入对应模型的安装命令即可
+
+
+
+
+模型不可用问题：
+
+
+输入下..." />
+    <meta name="keywords" content="Windows,科技,AI" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://sheep-coding.github.io">
+        <img src="https://sheep-coding.github.io/images/avatar.png?v=1758929872719" class="site-logo">
+        <h1 class="site-title">WMsheep</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://sheep-coding.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">本地部署模型时遇到的常见问题</h2>
+            <div class="post-date">2025-05-13</div>
+            
+              <div class="feature-container" style="background-image: url('https://sheep-coding.github.io/post-images/q-bs-ollama.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>✍️  <strong>针对 Ollama 本地部署的一些答复</strong></p>
+<!-- more -->
+<p><strong><a href="https://sheep-coding.github.io/post/bs-ollama/">建议搭配博客查看</a></strong></p>
+<h2 id="运行问题">运行问题：</h2>
+<blockquote>
+<ul>
+<li>当部署完成以后，想要<strong>再次运行</strong>时，只需要：
+<ol>
+<li><strong>打开 <code>PowerShell</code> （无需管理员身份）</strong></li>
+<li>输入<strong>对应模型的安装命令</strong>即可</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<h2 id="模型不可用问题">模型不可用问题：</h2>
+<blockquote>
+<ul>
+<li>输入下载命令发现<em><strong>模型不可用问题</strong></em>——
+<ol>
+<li>检查 <strong>Ollama Setup.exe</strong> 是否正常【<strong>打开<code>PowerShell</code>（无需管理员身份</strong>】[输入<strong>ollama</strong>查看输出。正常输出如下]</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<hr>
+<pre><code class="language-txt">PS C:\Users\用户名&gt; ollama
+Usage:
+  ollama [flags]
+  ollama [command]
+
+Available Commands:
+  serve       Start ollama
+  create      Create a model from a Modelfile
+  show        Show information for a model
+  run         Run a model
+  pull        Pull a model from a registry
+  push        Push a model to a registry
+  list        List models
+  ps          List running models
+  cp          Copy a model
+  rm          Remove a model
+  help        Help about any command
+
+Flags:
+  -h, --help      help for ollama
+  -v, --version   Show version information
+
+Use &quot;ollama [command] --help&quot; for more information about a command.
+PS C:\Users\用户名&gt;
+</code></pre>
+<p><strong>[下载模型正常输出]</strong></p>
+<pre><code>PS C:\Users\wmy66&gt; ollama run llama3.1:8b
+pulling manifest
+pulling 8eeb52dfb3bb...
+91%▕██████████████████████████████████████████████████      ▏ 
+4.2 GB/4.7 GB  207 KB/s  35m26s 
+</code></pre>
+<hr>
+<p>若是这段输出<strong>Ollama Setup.exe</strong>基本正常，若还是不行就<strong>重新下载</strong> <strong><a href="https://sheep-coding.github.io/post/bs-ollama/">点我查看博客</a></strong><br>
+要么就是<strong>模型与电脑配置不匹配</strong>，<strong>换一个模型</strong></p>
+<h2 id="语言问题">语言问题：</h2>
+<blockquote>
+<ul>
+<li>这个模型默认语言是英语，对于大陆用户来说，要让让它用中文回复只需一步
+<ol>
+<li>输入<code>请用中文回复</code>即可</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="模型卡顿问题">模型卡顿问题：</h2>
+<blockquote>
+<ul>
+<li>模型卡顿问题，一般是因为<strong>显卡显存不足</strong>，解决方法如下：
+<ol>
+<li><strong>关闭</strong>电脑上其他<strong>占用显存</strong>的软件</li>
+<li><strong>关闭</strong>电脑上其他<strong>占用显存</strong>的软件</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<p><strong><a href="https://sheep-coding.github.io/post/bs-ollama/">建议搭配博客查看</a></strong></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://sheep-coding.github.io/tag/HGZvjqPf1L/" class="tag">
+                    Windows
+                  </a>
+                
+                  <a href="https://sheep-coding.github.io/tag/oAWhKPueHj/" class="tag">
+                    科技
+                  </a>
+                
+                  <a href="https://sheep-coding.github.io/tag/ccdCKQyVhN/" class="tag">
+                    AI
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://sheep-coding.github.io/post/wtg/">
+                  <h3 class="post-title">
+                    如何制作 Win To Go(WTG)
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liqqJfn4S2Q34rNp',
+        clientSecret: '53071e078647c7d1ac0a0a0d772adc088f94d5fd',
+        repo: 'sheep-coding.github.io',
+        owner: 'sheep-coding',
+        admin: ['sheep-coding'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

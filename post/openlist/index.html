@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>OpenList 的部署与使用 | WMsheep</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://sheep-coding.github.io/favicon.ico?v=1758929872719">
+<link rel="stylesheet" href="https://sheep-coding.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="🌐让 文件管理、家庭NAS 变得像喝水一样简单
+
+
+    前言
+    这是一个与 Aslist 差不多的开源服务，主要用于家庭文件管理
+	相较之下，它更像是一个 家庭NAS 用于管理文件，音视频等（因为它内置播放器，自然也可以当作家庭..." />
+    <meta name="keywords" content="Windows,科技" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://sheep-coding.github.io">
+        <img src="https://sheep-coding.github.io/images/avatar.png?v=1758929872719" class="site-logo">
+        <h1 class="site-title">WMsheep</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      温故而知新
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://sheep-coding.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">OpenList 的部署与使用</h2>
+            <div class="post-date">2025-08-26</div>
+            
+              <div class="feature-container" style="background-image: url('https://blog.lcayun.com/wp-content/uploads/2025/06/image-3-1024x669.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>🌐让 <strong>文件管理、家庭NAS</strong> 变得像<strong>喝水一样简单</strong></p>
+<!-- more -->
+<details>
+    <summary>前言</summary>
+    这是一个与 <strong>Aslist</strong> 差不多的开源服务，主要用于家庭文件管理</br>
+	相较之下，它更像是一个 <strong>家庭NAS</strong> 用于管理文件，音视频等（<strong>因为它内置播放器，自然也可以当作家庭影视库</strong>）
+	</details>
+<h2 id="关于-openlist">关于 OpenList</h2>
+<ol>
+<li><strong>多存储挂载</strong>：聚合管理本地存储、阿里云盘、OneDrive、Google Drive 等十几种存储服务</li>
+<li><strong>统一文件管理</strong>：提供<code>上传、下载、删除、移动、复制</code>等跨存储的通用文件操作</li>
+<li><strong>文件预览</strong>：支持<strong>在线预览文档（PDF、Office）、图片、文本和代码文件</strong></li>
+<li><strong>媒体播放</strong>：支持<strong>在线播放视频和音频文件</strong>，并可加载外挂字幕</li>
+<li><strong>文件分享</strong>：可为文件或文件夹生成密码保护和有效期设置的<strong>分享链接</strong></li>
+<li><strong>WebDAV 支持</strong>：通过 WebDAV 协议向外提供文件访问服务，<strong>兼容其他应用</strong></li>
+<li><strong>离线下载</strong>：支持添加<strong>种子、磁力链接</strong>等任务进行离线下载到挂载的存储</li>
+<li><strong>自托管部署</strong>：提供 Docker 等部署方式，可完全<strong>私有化部署，数据自主控制</strong></li>
+<li><strong>多云同步</strong>：支持在不同挂载的存储之间复制或移动文件，<strong>实现跨云盘同步</strong></li>
+</ol>
+<hr>
+<blockquote>
+<p><strong>适用场景</strong>：单区域文件共享、家庭NAS、家庭影视库、私密文件存储。快速文件预览&amp;分享</p>
+</blockquote>
+<h2 id="本地搭建-webdav-挂载">本地搭建 &amp; WebDAV 挂载</h2>
+<h3 id="一-本地搭建">一、本地搭建</h3>
+<ol>
+<li>从 <strong>OpenList 官网</strong> 或者 <strong>官方Github</strong> 下载本地源文件 <strong><a href="https://github.com/OpenListTeam/OpenList/releases/tag/beta">点击跳转</a></strong><br>
+划到最下面：<br>
+<a href="https://imgse.com/i/pVymvYq"><img src="https://s21.ax1x.com/2025/08/25/pVymvYq.png" alt="pVymvYq.png" loading="lazy"></a><br>
+在框起来的 <code>.zip</code> 文件中（<strong>Windows 系统</strong>），选择你自己的 <em><strong>系统对应版本</strong></em> 下载<br>
+</br></li>
+<li>解压 <code>.zip</code> 文件，在上方输入 <code>cmd</code> 打开<strong>命令提示符</strong> 输入：</li>
+</ol>
+<pre><code class="language-bash">openlist server
+</code></pre>
+<p>回车 <strong>启动OpenList 服务</strong><br>
+<a href="https://imgse.com/i/pVyueEj"><img src="https://s21.ax1x.com/2025/08/25/pVyueEj.png" alt="pVyueEj.png" loading="lazy"></a><br>
+保存好 <strong>临时密码</strong> 和 <strong>5244端口号</strong><br>
+</br><br>
+3. 在浏览器内输入：</p>
+<pre><code class="language-txt">127.0.0.1:5244
+</code></pre>
+<p>不出意外就可以访问 <strong>OpenList 服务了</strong><br>
+<a href="https://imgse.com/i/pVyu5M8"><img src="https://s21.ax1x.com/2025/08/25/pVyu5M8.png" alt="pVyu5M8.png" loading="lazy"></a><br>
+如图所示输入 <strong>用户名：</strong><code>admin</code> 和 <strong>临时密码</strong>，点击 <strong>&lt;登录&gt;</strong><br>
+点击网页下方的 <strong>管理</strong><br>
+<a href="https://imgse.com/i/pVyuzsU"><img src="https://s21.ax1x.com/2025/08/25/pVyuzsU.png" alt="pVyuzsU.png" loading="lazy"></a><br>
+进入管理页面后，即可 <strong>更改用户名/密码</strong> ，点击 <strong>保存</strong> ，重新登陆一次即可<br>
+</br><br>
+4. <strong>挂载网盘（先以阿里云盘为例）</strong></p>
+<ul>
+<li>打开 <strong>OpenList</strong> 点击左侧菜单栏中的 <strong>存储</strong>  驱动选择 <em><strong>阿里云盘（OAuth2）</strong></em>
+<ul>
+<li>在 <strong>存储路径</strong> 这里先输入 <code>/</code> 然后取一个名字（可自定义），比如 <code>阿里云盘</code></li>
+</ul>
+</li>
+<li>接下来，划到下方，获取 <strong>刷新令牌</strong> <strong><a href="https://api.oplist.org/">点击跳转</a></strong>
+<ul>
+<li>网盘名称选择 <em><strong>阿里云盘（OAuth2）扫码登陆</strong></em>  ，勾选 <strong>使用 OpenList 提供的参数</strong> <a href="https://imgse.com/i/pVyDVpV"><img src="https://s21.ax1x.com/2025/08/26/pVyDVpV.png" alt="pVyDVpV.png" loading="lazy"></a></li>
+<li>点击 <strong>获取 Token</strong> 在手机上扫码登陆 <em><strong>阿里云盘</strong></em> Token 就会出现在下方
+<ul>
+<li>复制 <em><strong>刷新令牌</strong></em> 回到 <strong>OpenList</strong> 填入 <em><strong>刷新令牌</strong></em> ，点击 <strong>添加</strong>，状态显示为 <code>work</code> 即可![[Pasted image 20250826095501.png]]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="站长の中场废话">站长の中场废话</h3>
+<blockquote>
+<p>我们已经完成了 <strong>OpenList 的网盘挂载</strong> ，其实这样就可以使用了，只不过不够直接、方便，之前我们了解过一些，<strong>把网盘直接挂载为 USB/驱动器</strong> 的技术——使用 <em><strong>RaiDrive</strong></em></p>
+</blockquote>
+<p>接下来我们就会使用 <em><strong>RaiDrive</strong></em> 来将网盘直接挂载到 <strong>本地电脑</strong> 中，实现网页、本地双向操作</p>
+<hr>
+<h3 id="二-webdav-挂载">二、WebDAV 挂载</h3>
+<ol>
+<li>下载 <em><strong>RaiDrive</strong></em> <strong><a href="https://www.raidrive.com/">点击跳转</a></strong>，登录<a href="https://imgse.com/i/pVyr0rF"><img src="https://s21.ax1x.com/2025/08/26/pVyr0rF.png" alt="pVyr0rF.png" loading="lazy"></a></li>
+<li>打开 <em><strong>RaiDrive</strong></em> 点击 <strong>添加</strong> 填入信息<a href="https://imgse.com/i/pVyrjsS"><img src="https://s21.ax1x.com/2025/08/26/pVyrjsS.md.png" alt="pVyrjsS.md.png" loading="lazy"></a><br>
+确保 <strong>Webdav 权限</strong> 和 <strong>Webdav 管理</strong> 权限开启，点击 <strong>连接</strong></li>
+</ol>
+<h2 id="管理启动">管理启动</h2>
+<blockquote>
+<p><em><strong>RaiDrive</strong></em> 和 <em><strong>OpenList</strong></em> 需要同步启动，所以最好添加一个 <strong>启动管理</strong> ，<em><strong>RaiDrive</strong></em> 本来就有开机自启动，所以这里主要说明 <strong>OPenList</strong></p>
+</blockquote>
+<h3 id="启动脚本">启动脚本</h3>
+<ol>
+<li>在 <strong>OpenList 程序源文件下</strong> 新建两个 <code>.txt</code> 文档</li>
+<li>【第一个】输入<mark>以下脚本代码（启动脚本）</mark> 命名为 <code>openListStart.vbs</code><pre><code>Dim ws
+Set ws = Wscript.CreateObject(&quot;Wscript.Shell&quot;)
+ws.run &quot;openlist.exe server&quot;,vbhide
+Wscript.quit
+</code></pre>
+【第二个】输入<mark>以下脚本代码（停止脚本）</mark> 命名为 <code>openListStop.vbs</code><pre><code>Dim ws
+Set ws = Wscript.CreateObject(&quot;Wscript.Shell&quot;)
+ws.run &quot;taskkill /f /im openlist.exe&quot;,0
+Wscript.quit
+</code></pre>
+</li>
+</ol>
+<h3 id="添加自启动">添加自启动</h3>
+<p>Win + R 打开 <em><strong>运行</strong></em> 输入 <code>shell:startup</code> ，添加 <code>openListStop.vbs</code> 的 <strong>快捷方式</strong> 到这个目录下即可</p>
+<h2 id="访问">访问</h2>
+<h4 id="本地电脑">本地电脑</h4>
+<ol>
+<li>127.0.0.1 + 端口号<pre><code>127.0.0.1:5244
+</code></pre>
+</li>
+<li>IP 地址 + 端口号（IP地址不便展示）<pre><code>256.256.256.256:5244
+</code></pre>
+</li>
+</ol>
+<h4 id="同一局域网">同一局域网</h4>
+<p>IP 地址 + 端口号（IP地址不便展示）</p>
+<pre><code>256.256.256.256:5244
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://sheep-coding.github.io/tag/HGZvjqPf1L/" class="tag">
+                    Windows
+                  </a>
+                
+                  <a href="https://sheep-coding.github.io/tag/oAWhKPueHj/" class="tag">
+                    科技
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://sheep-coding.github.io/post/gridea-pro-max/">
+                  <h3 class="post-title">
+                    关于Gridea博客的后续[博客跟新&amp;外观更改]篇
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad()
+  </script>
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'Ov23liqqJfn4S2Q34rNp',
+        clientSecret: '53071e078647c7d1ac0a0a0d772adc088f94d5fd',
+        repo: 'sheep-coding.github.io',
+        owner: 'sheep-coding',
+        admin: ['sheep-coding'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
